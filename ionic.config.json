@@ -1,0 +1,7 @@
+{
+  "name": "ParlayPro",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
