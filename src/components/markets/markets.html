@@ -1,0 +1,33 @@
+
+<div class="left-menu-sport" >
+  <h2 >Sports</h2>
+    
+    <div >
+        <div *ngFor="let sport of sports" (click)="onSelect(sport)">
+            <div>
+                <label class="sportlist">{{sport.sport}}</label>
+                    <div *ngFor="let event of events" (click)="onSelectEvent(event)"> 
+                        <div *ngIf="sport.id==sportsId && event.sport == sport.id">
+                            <label class="eventlist">{{event.event}}</label>
+                            <!-- List all dates for each event-->
+                            <div *ngFor="let marketdate of marketdates"> 
+                                <div style="padding-top: 10px; padding-bottom: 10px" *ngIf="event.id==eventsId && marketdate.event==event.id" >
+                                    <label class="marketdate">{{marketdate.date}}</label>
+                                    <!-- list all markets in event-->
+                                    <div *ngFor="let market of markets" (click)="onSelectMarket(market)"> 
+                                        <div *ngIf="event.id==eventsId && market.event==event.id && marketdate.id==market.date" >
+                                            <label class="marketlist">{{market.market}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+              </div>
+          </div>
+    </div>
+  </div>
+  
+  
+  

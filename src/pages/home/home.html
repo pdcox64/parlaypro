@@ -1,14 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style= "background-color: #292828">
+  <body padding>
+    <div style="text-align: center">
+        <span class = "title title-white">{{ title1 }}</span>
+        <span class = "title title-orange">{{ title2 }}</span>
+    </div>
+    
+    <div  style="text-align:center; align-content: center; margin-top: 20px">
+    <img width="300" alt="ParlayPro Logo" src= "/assets/imgs/BookiePro.png">
+    </div>
+    
+    <div style="text-align: center;  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; padding-bottom: 50px">
+      
+      <h2>
+          <div padding>
+              <label style = "color: orange">User Name:</label>
+              <input [(ngModel)] = "login.username" placeholder="user name" style="margin-left: 10px">
+          </div>
+          <div style="color: orange">
+            <label>Password:
+                <input [(ngModel)] = "login.password" placeholder="password" style="margin-left: 10px">
+            </label>
+          </div>
+         <br>
+          <button (click)='onClickLogin()' ion-button color="danger" outline>Login</button>
+      </h2>
+    </div>
+    </body>
 </ion-content>

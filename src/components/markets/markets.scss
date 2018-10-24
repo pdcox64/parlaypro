@@ -1,0 +1,59 @@
+markets {
+    .left-menu-sport{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+    
+    .sportlist{
+        color: white;
+        font-size: 18px;
+        font-weight: normal; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding-left: 40px;
+    }
+    
+    .sportlist:hover { 
+        color: orange;
+        cursor: pointer;
+    }
+    
+    
+    .eventlist{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding-left: 60px;
+    }
+    
+    .eventlist:hover { 
+        color :orange;
+        cursor: pointer;
+    }
+    
+    .marketdate{
+        color:peru;
+        font-size: 16px;
+        font-weight: bold; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding-left: 80px;
+        padding-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+    .marketlist{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding-left: 80px;
+    }
+    
+    .marketlist:hover { 
+        color :orange;
+        cursor: pointer;
+    }
+}

@@ -1,3 +1,101 @@
-page-home {
 
-}
+
+    h1{
+        color: white;
+        font-size: 32px;
+        font-weight: bold; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+    
+    h2{
+       
+        color: orange;
+        font-size: 20px;
+        font-weight: bold; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+    
+    h3{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+    
+    .background-dark{
+        background-color: #241b1bc7;
+    }
+    .title{
+        font-size: 64px;
+        font-weight: bold; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+    
+    #float-left{
+        float: left;
+    }
+    
+    .title-white{
+        color: white;  
+    }
+    
+    .title-orange{
+       color: orange
+    }
+    
+    .button-huge {
+        padding-top: 20px;
+         width: 200px;
+         height: 200px;
+         color: #4d4d4d;
+         background-color: #333333;
+         text-align: center;
+         font-size: 32px;
+         font-weight: bold; 
+         border-radius: 100px;    
+      }
+     
+     .button-shadow{
+      
+         box-shadow: 0px 0px 6px 6px #fa4d00;
+         transition: box-shadow 0.3s ease-in-out;
+     }
+     
+      .button-huge:active {
+       box-shadow: 1px 1px 5px 0 #000000;
+       -webkit-box-shadow: 1px 1px 5px 0 #000000;    
+       -moz-box-shadow: 1px 1px 5px 0 #000000;
+     }
+     
+     .button-huge:hover{
+         cursor: pointer;
+     }
+     
+      .button-align-center {
+          text-align: center;
+     
+      }
+     
+      .button-text-engraved { 
+         
+         text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+     }
+     
+     /*override standard toolbar colors*/
+     
+      .toolbar-background {
+       background-color: #4d4d4d;
+     }
+     
+    
+     .toolbar-title, .toolbar[primary]  {
+       color: ghostwhite;
+     }
+     
+     .bar-button, .bar-button-default-md{
+         color: #ff8300;
+     }
+     
+     
+
+
