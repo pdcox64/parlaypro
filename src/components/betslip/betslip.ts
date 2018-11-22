@@ -24,6 +24,7 @@ export class BetslipComponent {
         if(type ==1 ){ //lay bets 
             this.betslip.laybetsliparray.push(betscopy);
         }
+        
         else{ //back bets
             this.betslip.backbetsliparray.push(betscopy);
         }      
