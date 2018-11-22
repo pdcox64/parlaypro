@@ -26,6 +26,7 @@ export class BetslipComponent {
         }
         else{ //back bets
             this.betslip.backbetsliparray.push(betscopy);
+            
         }      
       });
     }
