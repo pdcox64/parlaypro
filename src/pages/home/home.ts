@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Login } from '../../globals/globals';
 import { MainPage } from '../main/main';
+import {Sports} from '../../globals/globals';
+import {SportEvents} from '../../globals/globals';
+import {Markets} from '../../globals/globals';
+import {MarketsDates} from '../../globals/globals';
+import {BetWin} from '../../globals/globals';
+import { BackBets, LayBets, BetSlip, BetList } from '../../globals/mock-events';
 
 @Component({
   selector: 'page-home',
@@ -15,13 +21,15 @@ export class HomePage {
   title1 = 'Parlay';
   title2 = 'Pro';
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navparams: NavParams) {
+
 
   }
 
   onClickLogin(): void {
-        alert('click');
        // go to main page
-       this.navCtrl.push(MainPage);
+       this.navCtrl.push(MainPage, {username: this.login.username});
        }
+
+  
 }

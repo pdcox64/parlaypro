@@ -1,32 +1,54 @@
 
-<div class="left-menu-sport" >
-  <h2 >Sports</h2>
-    
+<div class="left-menu-sport"  >
+  <h2 class="markets-h2">All Sports</h2>
     <div >
         <div *ngFor="let sport of sports" (click)="onSelect(sport)">
             <div>
-                <label class="sportlist">{{sport.sport}}</label>
-                    <div *ngFor="let event of events" (click)="onSelectEvent(event)"> 
+                <ion-item no-lines>
+                        <ion-label [class]="sport.id==thissportlist ? 'sportliston' : 'sportlistoff'" (click)="setsport(sport.id)">
+                            <ion-icon [color]="sport.id==thissportlist ? 'orange' : 'white'" item-start [name]="sport.icon" ></ion-icon>
+                            {{sport.sport}}
+                        </ion-label>                    
+                </ion-item> 
+                <div style = "background-color: rgb(51, 51, 51)"*ngFor="let event of sportevents" (click)="onSelectEvent(event)"> 
                         <div *ngIf="sport.id==sportsId && event.sport == sport.id">
-                            <label class="eventlist">{{event.event}}</label>
+                            
+                            <ion-label [class]="event.id==thiseventlist ? 'eventliston' : 'eventlistoff'" (click)="setevent(event.id)"> 
+                                    <ion-icon class="eventicon" [color]="event.id==thiseventlist ? 'orange' : 'white'" name="arrow-dropright"  ></ion-icon>
+                                {{event.event}}
+                            </ion-label>
                             <!-- List all dates for each event-->
-                            <div *ngFor="let marketdate of marketdates"> 
-                                <div style="padding-top: 10px; padding-bottom: 10px" *ngIf="event.id==eventsId && marketdate.event==event.id" >
+                            <div *ngFor="let marketdate of marketdates">
+                                <div class="marketdatestyle" *ngIf="event.id==eventsId && marketdate.event==event.id" >
                                     <label class="marketdate">{{marketdate.date}}</label>
                                     <!-- list all markets in event-->
                                     <div *ngFor="let market of markets" (click)="onSelectMarket(market)"> 
                                         <div *ngIf="event.id==eventsId && market.event==event.id && marketdate.id==market.date" >
-                                            <label class="marketlist">{{market.market}}</label>
+                                                <ion-label [class]="market.id==thismarketlist ? 'marketliston' : 'marketlistoff'" (click)="setmarket(market.id)">
+                                                    <ion-icon class="marketicon" [color]="market.id==thismarketlist ? 'orange' : 'white'" name="arrow-dropright" ></ion-icon> 
+                                                    {{market.market1}} v {{market.market2}}
+                                                </ion-label>
+                                                <div *ngFor="let betwin of betwins"> 
+                                                    <div *ngIf="sport.id == betwin.sport && market.id==marketId">   
+                                                            <label class="betlist" (click)="addMatch(sport,event,market,marketdate,betwin,'')">{{getWinner(betwin.win,market)}} </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Over/Under-->
+                                                <div *ngFor="let range of sport.overunder.range"> 
+                                                    <div *ngIf="market.id==marketId">  
+                                                        <label class="betlist" (click)="addMatch(sport,event,market,marketdate,'',range)">OVER/UNDER {{range}} {{sport.overunder.type}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
               </div>
           </div>
-    </div>
+    
   </div>
   
   

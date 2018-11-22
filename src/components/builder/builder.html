@@ -1,0 +1,184 @@
+
+<div style="width: 100%"> 
+    
+     
+    <ion-content  class="contentstyle" >
+        <div style="width: 80%; margin: 0 auto;">
+            <div style="padding-bottom: 10px; width: 100%"><!-- Banner -->
+                <img alt="Banner" src= "/assets/imgs/sports_banner_soccer.png">
+            </div>
+            <div class="message error-message" *ngIf="errormessage=='error'">
+                    <i class="fa fa-times-circle"></i>
+                    <!--Message Bar-->
+                    {{messagetext}}
+            </div>
+            <div class="message error-message" *ngIf="errormessage=='success'">
+                    <i class="fa fa-check"></i>
+                    <!--Message Bar-->
+                    {{messagetext}}
+            </div>
+            <div class="message warning-message" *ngIf="errormessage=='warning'">
+                <!--Message Bar-->
+                <i class="fa fa-warning"></i>
+                {{messagetext}}
+            </div>
+            <div class="message information-message" *ngIf="errormessage=='information'">
+                <!--Message Bar-->
+                <i class="fa fa-info-circle"></i>
+                {{messagetext}}
+            </div>
+            <ion-grid style="padding: 0">
+                    <ion-row style="height:30px; color:whitesmoke">
+                    <ion-col style="background-color: rgb(70, 65, 64)">
+                        <ion-label text-center [class] = "toggle==1 ? 'tabselected' : 'tabnotselected'" (click) = "layClick()">Lay Bets</ion-label>
+                    </ion-col>
+                    <ion-col style="background-color: rgb(88, 78, 76) ">
+                            <ion-label text-center [class] = "toggle==2 ? 'tabselected' : 'tabnotselected'" (click) = "backClick()">Back Bets</ion-label>
+                    </ion-col>
+                    </ion-row>
+            </ion-grid>
+        </div >
+                <!--Content for lay bets-->
+                <ion-content class="laybet-tab" text-center *ngIf="toggle==1">  
+                        <div *ngIf="laybetcounter==0" class="nocontent">
+                                 Add Lay Bets
+                        </div>
+                        <ion-item class="betlist-color-good" *ngFor="let laybet of laybets.LayBetListArray">      
+                            <ion-icon item-start [name]="laybet.icon" class="normal-text"></ion-icon>
+                                {{laybet.date}}<br/>{{laybet.sport}}: {{laybet.event}}<br/>
+                                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v 
+                                <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                                <span class="winner-color">{{laybet.overunder}}</span>
+                            <ion-icon id="smallicon" class="normal-text" item-end name="trash" style="cursor: pointer" (click)="deleteClick(laybet)"></ion-icon>
+                        </ion-item>
+                </ion-content>
+                <ion-content class="betodds-content" *ngIf="toggle==1">
+                        <!-- Bet odds / amount-->
+                            <ion-grid style="width: 100%; padding: 0px; border-width: 0px">
+                                <ion-row class="betodds">
+                                    <ion-col col-4 >
+                                        Odds
+                                    </ion-col>
+                                    <ion-col col-4 >
+                                        Backer's Stake
+                                    </ion-col>
+                                    <ion-col col-4>
+                                        Liability
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row class="betodds-input">
+                                    <ion-col col-3 style="padding-left: 30px; padding-top: 3px">
+                                        <ion-input id="oddsinput-col" text-center class="input-box" type="number" [(ngModel)]="layodds"  (ionChange)="updateLiability()"></ion-input>
+                                    </ion-col>
+                                        <!-- Add spinner-->
+                                    <ion-col col-1 class="spinner">
+                                        <ion-row class="spinner-row">
+                                            <ion-icon class = "arrows" name="arrow-dropup" (click)="arrowup()"></ion-icon>
+                                        </ion-row>
+                                        <ion-row class="spinner-row">
+                                            <ion-icon class= "arrows" name="arrow-dropdown" (click)="arrowdown()"></ion-icon>
+                                        </ion-row>
+                                    </ion-col>
+                                     <ion-col col-4 class="backers-col">
+                                            <ion-icon icon-start name="logo-bitcoin" style="color:black"></ion-icon>
+                                            <ion-input text-center class="input-box" type="number" [(ngModel)]="laystake" (ionChange)="updateLiability()"></ion-input>
+                                    </ion-col>
+                                    <ion-col text-center col-4>
+                                            <ion-icon icon-start name="logo-bitcoin" style="color:black"></ion-icon>
+                                            {{layliability}}
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                     <ion-col col-4  class="button-style">
+                                         <button icon-start [disabled] = "laybetcounter == 0" class="searchbet-button" (click) = "searchBackBets()"><ion-icon name="search"></ion-icon>Search</button>
+                                     </ion-col>
+                                     <ion-col col-4 style="padding:0" >
+                                         <ion-item no-lines  class="toggle-button">
+                                             <ion-label padding >Exact Only</ion-label>
+                                            <ion-toggle color="dark_orange" [disabled] = "laybetcounter == 0" [(ngModel)]="exactlaymatch"></ion-toggle> 
+                                         </ion-item>
+                                    </ion-col>
+                                    <ion-col col-4 class="button-style" >
+                                            <button icon-start class="searchbet-button" (click) = "searchpopular(1)"><ion-icon name="star"></ion-icon>Popular</button>
+                                    </ion-col>
+                                 </ion-row>
+                                <ion-row *ngIf="toggle==1" >
+                                    <ion-col col-12 class="button-style">
+                                        <button [disabled] = "laybetcounter==1 || laybetcounter==0" class="addbet-button" (click) = "addBet()">Add Bet</button>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                    </ion-content>
+
+                <!--Content for back bets-->
+                <ion-content class="backbet-tab" text-center *ngIf="toggle==2"  >  
+                    <div *ngIf="backbetcounter==0" class="nocontent">
+                            Add Back Bets
+                    </div>
+                   <ion-item class="backbetlist-color-good" *ngFor="let backbet of backbets.BackBetListArray">      
+                       <ion-icon item-start [name]="backbet.icon" class="normal-text"></ion-icon>
+                       {{backbet.date}}<br/>{{backbet.sport}}: {{backbet.event}}<br/>
+                       <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                       <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                       <span class="winner-color">{{backbet.overunder}}</span>
+                           <ion-icon id="smallicon" class="normal-text" item-end name="trash" style="cursor: pointer" (click)="deleteClick(backbet)"></ion-icon>
+                    </ion-item>   
+                </ion-content>
+                <ion-content class="betodds-content" *ngIf="toggle==2">
+                   <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
+                        <ion-row class="backbetodds">
+                                <ion-col col-4 >
+                                    Odds
+                                </ion-col>
+                                <ion-col col-4 >
+                                    Stake
+                                </ion-col>
+                                <ion-col col-4>
+                                    Profit
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="backbetodds-input">
+                                <ion-col col-3 style="padding-left: 30px; padding-top: 3px">
+                                    <ion-input id="oddsinput-col" text-center class="input-box" type="number" [(ngModel)]="backodds"  (ionChange)="updateProfit()"></ion-input>
+                                </ion-col>
+                                    <!-- Add spinner-->
+                                <ion-col col-1 class="spinner">
+                                    <ion-row class="spinner-row">
+                                        <ion-icon class = "arrows" name="arrow-dropup" (click)="backarrowup()"></ion-icon>
+                                    </ion-row>
+                                    <ion-row class="spinner-row">
+                                        <ion-icon class= "arrows" name="arrow-dropdown" (click)="backarrowdown()"></ion-icon>
+                                    </ion-row>
+                                </ion-col>
+                                 <ion-col col-4 class="backers-col">
+                                        <ion-icon icon-start name="logo-bitcoin" style="color:black"></ion-icon>
+                                        <ion-input text-center class="input-box" type="number" [(ngModel)]="backstake" (ionChange)="updateProfit()"></ion-input>
+                                </ion-col>
+                                <ion-col text-center col-4>
+                                        <ion-icon icon-start name="logo-bitcoin" style="color:black"></ion-icon>
+                                        {{backprofit}}
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                    <ion-col col-4  class="button-style">
+                                        <button icon-start [disabled] = "backbetcounter == 0" class="searchbet-button" (click) = "searchLayBets()"><ion-icon name="search"></ion-icon>Search</button>
+                                    </ion-col>
+                                    <ion-col col-4 style="padding:0" >
+                                        <ion-item no-lines  class="toggle-button">
+                                            <ion-label padding style="text-align: center">Exact Only</ion-label>
+                                           <ion-toggle color="dark_orange" [disabled] = "backbetcounter == 0" [(ngModel)]="exactbackmatch" ></ion-toggle> 
+                                        </ion-item>
+                                   </ion-col>
+                                   <ion-col col-4 class="button-style" >
+                                           <button icon-start class="searchbet-button" (click) = "searchpopular(2)"><ion-icon name="star"></ion-icon>Popular</button>
+                                   </ion-col>
+                                </ion-row>
+                            <ion-row *ngIf="toggle==2" >
+                                <ion-col col-12 class="button-style">
+                                    <button [disabled] = "backbetcounter==1 || backbetcounter==0" class="addbet-button" (click) = "addBet()">Add Bet</button>
+                                </ion-col>
+                            </ion-row>
+                    </ion-grid>
+                </ion-content>
+    </ion-content>
+</div>

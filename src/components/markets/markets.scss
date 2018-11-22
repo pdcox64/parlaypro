@@ -1,59 +1,140 @@
 markets {
-    .left-menu-sport{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 999;
+   
+    .markets-h2{
+        padding-top: 5px; 
+        padding-bottom: 5px;
+        margin-left:0px;
+        background-color: rgb(51, 51, 51);
     }
-    
-    .sportlist{
+
+    #smallicon{
+        font-size: 16px;
+        padding-top: 5px;
+    }
+
+    .item-md{
+        background-color: transparent;
+    }
+
+    .item-block{
+        height: 30px !important;
+        min-height: 20px !important;
+    }
+
+    .sportlistoff{
         color: white;
         font-size: 18px;
-        font-weight: normal; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        padding-left: 40px;
+        font-weight: bold; 
+        font-family: 'Roboto';
+        padding-left: 0px;
+        margin-left: 0px;
+        cursor:pointer;
+    }
+
+    .sportliston{
+        color:orange;
+        font-size: 18px;
+        font-weight: bold; 
+        font-family:'Roboto';
+        padding-left: 0px;
+        margin-left: 0px;
+        cursor:pointer;
     }
     
-    .sportlist:hover { 
+    .sportlistoff:hover { 
         color: orange;
         cursor: pointer;
     }
     
-    
-    .eventlist{
+    .eventicon{
+        font-size: 18px;
+        padding-left: 45px;
+    }
+
+    .eventicon:hover{
+        color :orange;
+        cursor: pointer;
+    }
+
+    .eventliston{
+        color: orange;
+        font-size: 16px;
+        font-weight: bold; 
+        font-family:'Roboto';
+    }
+
+    .eventlistoff{
         color: white;
         font-size: 16px;
-        font-weight: normal; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        padding-left: 60px;
+        font-weight: bold; 
+        font-family:'Roboto';
     }
     
-    .eventlist:hover { 
+    .eventlistoff:hover { 
         color :orange;
         cursor: pointer;
     }
     
     .marketdate{
-        color:peru;
-        font-size: 16px;
+        color:rgb(209, 156, 104);
+        font-size: 12px;
         font-weight: bold; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        padding-left: 80px;
+        font-family:'Roboto';
+        padding-left: 55px;
         padding-bottom: 20px;
         margin-top: 20px;
     }
+
+    .marketdatestyle{
+        padding-top: 10px;
+        padding-bottom: 10px; 
+        border-width: 2px; 
+        border-bottom-style: inset;
+        border-bottom-color: rgb(75, 74, 74); 
+    }
     
-    .marketlist{
+    .marketliston{
+        color: orange;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family:'Roboto';
+    }
+    
+    .marketlistoff{
         color: white;
         font-size: 16px;
         font-weight: normal; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        padding-left: 80px;
+        font-family:'Roboto';
     }
     
-    .marketlist:hover { 
+    .marketlistoff:hover { 
+        color : orange;
+        cursor: pointer;
+    }
+
+    .marketicon{
+        font-size: 18px;
+        padding-left: 60px;
+    }
+
+    .marketicon:hover{
         color :orange;
         cursor: pointer;
     }
+
+    .betlist{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family:'Roboto';
+        padding-left: 80px;
+       
+    }
+
+    .betlist:hover { 
+        color :orange;
+        cursor: pointer;
+    }
+
+
 }

@@ -10,6 +10,7 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
+$toolbar-ios-title-text-align: center;
 
 
 @import "ionic.globals";
@@ -34,11 +35,46 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:      #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  overlay_oxford_blue: rgba(0, 38, 66, 0.7),
+  deep_sky_blue: #00BEF4, // highlight+  primary button start
+  bright_cerulean: #2FA5E6,
+  oxford_blue: #002440, //primary_bg
+  dark_cerulean: #004378, //secondary_bg + disable btn start
+  medium_teal_blue: #005CB7,  //third_bg + primary button  end
+  lapis_lazuli: #1563A0, // primary border
+  medium_electric_blue: #005CB7, // back bg + disable btn end
+  true_blue: #0774de,
+  midnight_blue: #003769,
+  midnight_blue_border: #064b88,
+  teamname_blue: #6f8ba3,
+  bright_turquoise: #20E7ED, // only used for lay hightly
+  mid-teal: #008487, //lay btn bg  main
+  skobeloff: #05696B, // lay header bg only
+  jungle_green: #359C9F,  //lay border only
+  blue_green: #129CA0,
+  dark_cyan: #00a48b, // lay btn bg
+  mid-green: #02CB43,
+  cream: #F8EBDA,
+  light_pink: #FEE0E1,
+  medium_pink: rgb(247, 196, 198),
+  dark_pink: #FDAEB2,
+  dark_gray: #A9A9A9,
+  outer_space: #4A4A4A,
+  teamname_grey: #bfbfbf,
+  disabled: lightslategray,
+  dark_text: rgb(59, 59, 59),
+  light_blue: #BAE5F7,
+  medium_blue: rgb(160, 217, 241),
+  dark_blue: #53beec,
+  //light_orange: rgb(252, 210, 156),
+  dark_orange: orange,
+  light_orange: rgb(255, 216, 145),
+
 );
 
 

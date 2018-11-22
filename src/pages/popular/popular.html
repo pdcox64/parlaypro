@@ -1,0 +1,109 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title style="color: orange"><ion-icon padding name="star"></ion-icon>Popular Bets</ion-title>
+    <ion-buttons right> 
+              <button ion-button icon-only (click)="cancelPage()">
+                  <ion-icon name="close-circle" style="color: white" ></ion-icon>
+              </button>
+          </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: grey">
+    <ion-grid style="padding: 0; border-width: 0">
+        <ion-row style="height:60px; color:whitesmoke; padding:0">
+            <ion-col>
+                <div [class] = "sport==0 ? 'sportselected' : 'sportnotselected'">
+                  <ion-item text-center [class] = "sport==0 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(0)">
+                      Mix
+                  </ion-item>
+                </div>
+          </ion-col>
+            <ion-col>
+                  <div [class] = "sport==1 ? 'sportselected' : 'sportnotselected'">
+                    <ion-item text-center  [class] = "sport==1 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(1)">
+                        <ion-icon name = "football"></ion-icon>
+                    </ion-item>
+                  </div>
+            </ion-col>
+            <ion-col>
+              <div [class] = "sport==2 ? 'sportselected' : 'sportnotselected'">
+                <ion-item text-center [class] = "sport==2 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(2)">
+                    <ion-icon name = "american-football"></ion-icon>
+                </ion-item>
+                </div>
+              </ion-col>
+            <ion-col>
+              <div [class] = "sport==3 ? 'sportselected' : 'sportnotselected'">
+                <ion-item text-center [class] = "sport==3 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(3)">
+                    <ion-icon name = "baseball"></ion-icon>
+                </ion-item>
+                </div>
+              </ion-col>
+            <ion-col>
+              <div [class] = "sport==4 ? 'sportselected' : 'sportnotselected'">
+                <ion-item text-center [class] = "sport==4 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(4)">
+                    <ion-icon name = "basketball"></ion-icon>
+                </ion-item>
+                </div>
+            </ion-col>
+            <ion-col>
+              <div [class] = "sport==5 ? 'sportselected' : 'sportnotselected'">
+                <ion-item text-center [class] = "sport==5 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(5)">
+                    <ion-icon name = "tennisball"></ion-icon>
+                </ion-item>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Lay Bets -->
+    <div *ngIf="bettype==1" style="height: 90%; background-color:rgb(70, 65, 64);">
+        <div *ngFor="let thislaybets of betslip.laybetsliparray"> 
+          <div *ngIf="thislaybets.sport==sport"  >
+            <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" class="laybetlist-color-good">
+                <ion-icon item-start name="{{laybet.icon}}" ></ion-icon>
+                      {{laybet.date}} - {{laybet.sport}}: {{laybet.event}}<br/>
+                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+              </ion-item>
+              <div> 
+                  <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
+                      <ion-row class="betsize">
+                              <ion-col class="laybetall" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,thislaybets.odds,thislaybets.stake)" ><div>{{thislaybets.odds}}</div><div class="smalltext">{{thislaybets.stake}}</div></div></ion-col>
+                              <ion-col class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,calculatestake(thislaybets.odds,1,2),calculatestake(thislaybets.stake,1,5))" ><div>{{calculatestake(thislaybets.odds,1,2)}}</div><div class="smalltext">{{calculatestake(thislaybets.stake,1,5)}}</div></div></ion-col>
+                              <ion-col class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,calculatestake(thislaybets.odds,2,2),calculatestake(thislaybets.stake,2,5))" ><div>{{calculatestake(thislaybets.odds,2,2)}}</div><div class="smalltext">{{calculatestake(thislaybets.stake,2,5)}}</div></div></ion-col>
+                              <ion-col  class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,calculatestake(thislaybets.odds,3,2),calculatestake(thislaybets.stake,3,5))" ><div>{{calculatestake(thislaybets.odds,3,2)}}</div><div class="smalltext">{{calculatestake(thislaybets.stake,3,5)}}</div></div></ion-col>     
+                      </ion-row>
+                  </ion-grid>
+                  <br/>
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    <!--Back Bets -->    
+        <div *ngIf="bettype==2" style="height: 90%; background-color:rgb(70, 65, 64);">
+            <div *ngFor="let thisbackbets of betslip.backbetsliparray"> 
+              <div *ngIf="thisbackbets.sport==sport"  >
+                <ion-item *ngFor="let backbet of thisbackbets.BackBetListArray" class="backbetlist-color-good">
+                    <ion-icon item-start name="{{backbet.icon}}" ></ion-icon>
+                          {{backbet.date}} - {{backbet.sport}}: {{backbet.event}}<br/>
+                    <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                  </ion-item>
+                  <div> 
+                      <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
+                          <ion-row class="betsize">
+                                  <ion-col class="backbetall" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,0)" ><div>{{thisbackbets.odds}}</div><div class="smalltext">{{thisbackbets.stake}}</div></div></ion-col>
+                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,1)" ><div>{{calculatestake(thisbackbets.odds,1,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,1,2)}}</div></div></ion-col>
+                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,2)" ><div>{{calculatestake(thisbackbets.odds,2,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,2,2)}}</div></div></ion-col>
+                                  <ion-col  class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,3)" ><div>{{calculatestake(thisbackbets.odds,3,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,3,2)}}</div></div></ion-col>     
+                          </ion-row>
+                      </ion-grid>
+                      <br/>
+                  </div>
+                </div>
+            </div>
+    </div>
+  </ion-content>
+

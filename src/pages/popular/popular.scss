@@ -1,0 +1,121 @@
+popular {
+
+    .col{
+        padding :0;
+    }
+    
+    .tabselected{
+        font-size: 20pt;
+        color: orange;
+        cursor: pointer;
+        font-weight: bold !important;
+        background-color: rgb(70, 65, 64);
+    }
+
+    .tabnotselected {
+        font-size: 20pt;
+        color: whitesmoke;
+        cursor: pointer;
+        background-color: rgb(88, 78, 76);
+    }
+
+    .winner-color{
+        background-color: rgb(151, 229, 151);
+        color: color($colors,dark_text);
+    }
+
+    .loser-color{
+        color: color($colors,dark_text);
+    }
+
+    .laycolors{
+        border-bottom-color: color($colors,dark_pink);
+    }
+
+    .backcolors{
+        border-bottom-color: color($colors,dark_blue);
+    }
+
+    .backbetall{
+        background-color: color($colors,dark_blue);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .backbet{
+        background-color: color($colors,medium_blue);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .laybetall{
+        background-color: color($colors,dark_pink);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .laybet{
+        background-color: color($colors,medium_pink);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .laybethover:hover{
+        background-color: rgb(250, 214, 214);
+    }
+
+    .backbethover:hover{
+        background-color: rgb(189, 225, 250);
+    }
+
+    .laybetlist-color-good{ 
+        color: color($colors,dark_text);
+        background-color:color($colors,light_pink);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .backbetlist-color-good{ 
+        color: color($colors,dark_text);
+        background-color:color($colors,light_blue);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .sportselected{
+        background-color: rgb(70, 65, 64);
+        height: 60px;
+    }
+
+    .sportnotselected{
+        background-color: rgb(88, 78, 76);
+        height: 60px;
+    }
+
+    .toolbar-title, .toolbar[primary] {
+        color: orange;
+    }
+
+    .scroll-content {
+        overflow-y: auto !important;
+     }
+
+    ::-webkit-scrollbar-track
+    {
+
+    background-color: rgb(66, 39, 39)!important;
+    }
+
+    ::-webkit-scrollbar
+    {
+
+        background-color: rgb(66, 39, 39)!important;
+    }
+
+    ::-webkit-scrollbar-thumb
+    {
+    border-radius: 10px!important;
+    background-color: rgb(66, 39, 39)!important;
+    }  
+
+}

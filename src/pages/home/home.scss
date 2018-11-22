@@ -1,4 +1,18 @@
 
+ 
+    .button-round-md, .button-md{
+        background-color:orange;
+        width: 200px;
+    }
+
+    
+    .backgroundimage { 
+        background-image: url('/assets/imgs/background.png') ;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 
     h1{
         color: white;
@@ -95,7 +109,3 @@
      .bar-button, .bar-button-default-md{
          color: #ff8300;
      }
-     
-     
-
-

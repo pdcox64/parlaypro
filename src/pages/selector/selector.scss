@@ -1,0 +1,156 @@
+selector {
+    .selectbutton{
+        height: 30px !important;
+        width: 100%;
+        background-color: #ffa500;
+        color: rgb(46, 46, 46);
+        font-family:'Roboto';
+        font-size: 16px;  
+        padding: 0px;  
+    }
+
+    .nomatches{
+        height: 100%; 
+        color: orange;
+        font-size: 32pt; 
+        text-align:center; 
+        background-color: rgb(104, 104, 104); 
+        padding-top: 40%;
+    }
+
+    .winner-color{
+        background-color: rgb(151, 229, 151);
+        color: color($colors,dark_text);
+    }
+
+    .loser-color{
+        color: color($colors,dark_text);
+    }
+
+    .laycolors{
+        border-bottom-color: color($colors,dark_pink);
+    }
+
+    .backcolors{
+        border-bottom-color: color($colors,dark_blue);
+    }
+
+    .stakesize{
+        font-size: 8pt;
+        color: black;
+        height: 20px;
+    }
+
+    .betsize{
+        font-size: 12pt;
+        color: black;
+        height: 40px;
+    }
+
+    .smalltext{
+        font-size: 8pt;
+        color: black;
+    }
+
+    .backbethover:hover{
+        background-color: rgb(250, 214, 214);
+    }
+
+    .laybethover:hover{
+        background-color: rgb(189, 225, 250);
+    }
+
+    .laybetall{
+        background-color: color($colors,dark_blue);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .laybet{
+        background-color: color($colors,medium_blue);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .backbetall{
+        background-color: color($colors,dark_pink);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .backbet{
+        background-color: color($colors,medium_pink);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .backbet-content{
+        background-color: rgb(124, 124, 124);
+        font-size: 6pt;      
+    }
+
+    .scroll-content {
+        overflow-y: auto !important;
+     }
+
+    .laybetlist-color-good{ 
+        color: color($colors,dark_text);
+        background-color:color($colors,light_blue);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .exact-laymatch{
+        color: color($colors,dark_text);
+        background-color:color($colors,light_blue);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .exact-backmatch{
+        color: color($colors,dark_text);
+        background-color:color($colors,light_pink);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .partial-match{
+        color: color($colors,dark_text);
+        background-color:color($colors,light_orange);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .laybetlist-color-bad{ 
+        color: color($colors,dark_text);
+        background-color: rgb(253, 209, 127);
+        height: 50px !important;
+        font-size: 10pt;
+    }
+
+    .backbetlist-color-good{ 
+        color: color($colors,dark_text);
+        background-color:color($colors,light_pink);
+        height: 50px !important;
+        font-size: 10pt;
+        
+    }
+
+    ::-webkit-scrollbar-track
+    {
+
+    background-color: rgb(66, 39, 39)!important;
+    }
+
+    ::-webkit-scrollbar
+    {
+
+        background-color: rgb(66, 39, 39)!important;
+    }
+
+    ::-webkit-scrollbar-thumb
+    {
+    border-radius: 10px!important;
+    background-color: rgb(66, 39, 39)!important;
+    }
+}

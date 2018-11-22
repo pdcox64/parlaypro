@@ -3,15 +3,29 @@ export class Login {
     password: string;
 }
 
+export class BetWin {
+    id: number;
+    sport: number;
+    win: string;
+}
+
 export class Sports {
     id: number;
     sport: string;
+    icon: string;
+    overunder: OverUnder;
 }
 
-export class Events {
+export class SportEvents {
     id: number;
     event: string;
     sport: number;
+}
+
+export class OverUnder{
+    id: number;
+    range: string[];
+    type: string;
 }
 
 export class MarketsDates {
@@ -22,7 +36,11 @@ export class MarketsDates {
 
 export class Markets {
     id: number;
-    market: string;
+    market1: string;
+    market2: string;
     event: number;
     date: number;
 }
+
+
+

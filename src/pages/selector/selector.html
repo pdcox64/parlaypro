@@ -1,0 +1,68 @@
+
+<ion-header>
+  <ion-navbar>
+        <ion-title>Search Results</ion-title>
+        <ion-buttons right> 
+            <button ion-button icon-only (click)="cancelPage()">
+                <ion-icon name="close-circle" style="color: white" ></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<!--No matches-->
+    
+        <div *ngIf="nomatches==true" class="nomatches" >
+            No matches found
+        </div>
+
+<!-- Lay bets to back-->
+    <ion-content *ngIf="bettype==1 && nomatches == false" class="backbet-content" padding>
+      <div *ngFor="let thislaybets of betslip.laybetsliparray">   
+          <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" [ngClass]="laybet.style">
+             
+              <ion-icon item-start name="{{laybet.icon}}" ></ion-icon>
+              {{laybet.date}} - {{laybet.sport}}: {{laybet.event}}<br/>
+             
+              <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v 
+              <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+              <span class="winner-color">{{laybet.overunder}}</span>
+            </ion-item>
+            <div> 
+                <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
+                    <ion-row class="betsize">
+                            <ion-col class="laybetall" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,0)" ><div>{{betdata[0]}}</div><div class="smalltext">{{stakedata[0]}}</div></div></ion-col>
+                            <ion-col class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,1)" ><div>{{betdata[1]}}</div><div class="smalltext">{{stakedata[1]}}</div></div></ion-col>
+                            <ion-col class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,2)" ><div>{{betdata[2]}}</div><div class="smalltext">{{stakedata[2]}}</div></div></ion-col>
+                            <ion-col  class="laybet" col-3><div class="laybethover" (click)="closeLayBetPage(thislaybets,3)" ><div>{{betdata[3]}}</div><div class="smalltext">{{stakedata[3]}}</div></div></ion-col>     
+                    </ion-row>
+                </ion-grid>
+                <br/>
+            </div>
+        </div>
+    </ion-content>
+
+<!-- Back bets to lay-->
+    <ion-content *ngIf="bettype==2 && nomatches == false" class="backbet-content" padding>
+        <div class="" *ngFor="let thisbackbets of betslip.backbetsliparray">  
+            <ion-item *ngFor="let backbet of thisbackbets.BackBetListArray" [ngClass]="backbet.style">
+                <ion-icon item-start name="{{backbet.icon}}" class=""></ion-icon>
+                {{backbet.date}} - {{backbet.sport}}: {{backbet.event}}<br/>
+                <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                <span class="winner-color">{{backbet.overunder}}</span>
+            </ion-item>
+            <div> 
+                <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
+                    <ion-row class="betsize">
+                            <ion-col class="backbetall" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,0)" ><div>{{betdata[0]}}</div><div class="smalltext">{{stakedata[0]}}</div></div></ion-col>
+                            <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,1)" ><div>{{betdata[1]}}</div><div class="smalltext">{{stakedata[1]}}</div></div></ion-col>
+                            <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,2)" ><div>{{betdata[2]}}</div><div class="smalltext">{{stakedata[2]}}</div></div></ion-col>
+                            <ion-col  class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,3)" ><div>{{betdata[3]}}</div><div class="smalltext">{{stakedata[3]}}</div></div></ion-col>     
+                    </ion-row>
+                </ion-grid>
+                <br/>
+            </div>
+        </div>    
+      </ion-content>
+
