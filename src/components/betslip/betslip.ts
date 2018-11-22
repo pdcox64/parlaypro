@@ -17,6 +17,7 @@ export class BetslipComponent {
   constructor(public events: Events, public storage: Storage) {
 
         // load saved betslips
+        // more comments
         this.getstoreddata();
 
         events.subscribe('bets', (bets, type) => {
@@ -24,7 +25,7 @@ export class BetslipComponent {
         if(type ==1 ){ //lay bets 
             this.betslip.laybetsliparray.push(betscopy);
         }
-        
+
         else{ //back bets
             this.betslip.backbetsliparray.push(betscopy);
         }      
