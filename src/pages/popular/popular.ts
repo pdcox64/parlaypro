@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
-import { BackBets, LayBets, BetSlip, BetList, Message} from '../../globals/mock-events';
+import { BackBets, LayBets, BetSlip} from '../../globals/mock-events';
 
 
 @IonicPage()
@@ -70,7 +70,24 @@ export class PopularPage {
     laybets.user=1;
     laybets.matched=true;
     laybets.sport = 0;
-    this.betslip.laybetsliparray.push(laybets);   
+    this.betslip.laybetsliparray.push(laybets);  
+    
+
+    laybets = new LayBets;
+    laybets.LayBetListArray.push({id: 0, market1: 'Atalanta',market2:'Inter Milan', icon:'football', sport: 'Soccer',event: 'Serie A', date: 'Friday December 6, 2018', winner:'Inter Milan', style:'', partial:false, overunder:''});
+    laybets.LayBetListArray.push({id: 0, market1: 'Chievo',market2:'Bologna', icon:'football', sport: 'Soccer',event: 'Serie A', date: 'Friday December 6, 2018', winner:'Bologna', style:'', partial:false, overunder:''});
+    laybets.LayBetListArray.push({id: 0, market1: 'Chicago Bears',market2:'Kansas City Chiefs', icon:'american-football', sport: 'Football',event: 'NFL', date: 'Saturday December 6, 2018', winner:'Chicago Bears', style:'', partial:false, overunder:''});
+    laybets.LayBetListArray.push({id: 0, market1: 'Cincinnati Bengals',market2:'Los Angeles Chargers', icon:'american-football', sport: 'Football',event: 'NFL', date: 'Saturday December 6, 2018', winner:'Los Angeles Chargers', style:'', partial:false, overunder:''});
+    laybets.LayBetListArray.push({id: 0, market1: 'Roger Federer', market2: 'John isner', icon:'tennisball', sport: 'Tennis',event: 'Australian Open First Round - Men', date: 'Friday January 14, 2019', winner:'Roger Federer', style:'', partial:false, overunder:''});
+    laybets.stake = "0.01240";
+    laybets.odds = "24.00";
+    laybets.liability = "1000";
+    laybets.processed = true;
+    laybets.user=1;
+    laybets.matched=true;
+    laybets.sport = 0;
+    this.betslip.laybetsliparray.push(laybets);  
+
 
     // Soccer - EPL
     laybets = new LayBets;
@@ -195,7 +212,7 @@ export class PopularPage {
     laybets.LayBetListArray.push({id: 0, market1: 'Dominic Thiem', market2: 'Milos Raonic', icon:'tennisball', sport: 'Tennis',event: 'Australian Open First Round - Men', date: 'Friday January 14, 2019', winner:'Milos Raonic', style:'', partial:false, overunder:''});
     laybets.LayBetListArray.push({id: 0, market1: 'Kei Nishikori', market2: 'Andrew Murray', icon:'tennisball', sport: 'Tennis',event: 'Australian Open First Round - Men', date: 'Friday January 14, 2019', winner:'Andrew Murray', style:'', partial:false, overunder:''});
     laybets.stake = "0.0111";
-    laybets.odds = "7.03";
+    laybets.odds = "125.00";
     laybets.liability = "1000";
     laybets.processed = true;
     laybets.user=1;
@@ -205,9 +222,6 @@ export class PopularPage {
   
   
     // baseball
-
-
-
     laybets = new LayBets;
     laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'Chicago White Sox', icon:'baseball', sport: 'Baseball',event: 'MLB', date: 'Wednesday December 11, 2018', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
     laybets.LayBetListArray.push({id: 0, market1: 'Boston Red Sox',market2:'Texas Rangers', icon:'baseball', sport: 'Baseball',event: 'MLB', date: 'Wednesday December 11, 2018', winner:'Boston Red Sox', style:'', partial:false, overunder:''});
@@ -220,7 +234,7 @@ export class PopularPage {
     laybets.sport = 3;
     this.betslip.laybetsliparray.push(laybets); 
 
-   
+   // Basketball
    
    
    
