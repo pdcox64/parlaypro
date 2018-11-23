@@ -59,7 +59,7 @@
     </ion-grid>
 
     <!-- Lay Bets -->
-    <div *ngIf="bettype==1" style="height: 90%; background-color:rgb(70, 65, 64);">
+    <div *ngIf="bettype==1" style="height: 89%; background-color:rgb(70, 65, 64);">
         <div *ngFor="let thislaybets of betslip.laybetsliparray"> 
           <div *ngIf="thislaybets.sport==sport"  >
             <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" class="laybetlist-color-good">
@@ -83,7 +83,7 @@
     </div>
     
     <!--Back Bets -->    
-        <div *ngIf="bettype==2" style="height: 90%; background-color:rgb(70, 65, 64);">
+        <div *ngIf="bettype==2" style="height: 89%; background-color:rgb(70, 65, 64);">
             <div *ngFor="let thisbackbets of betslip.backbetsliparray"> 
               <div *ngIf="thisbackbets.sport==sport"  >
                 <ion-item *ngFor="let backbet of thisbackbets.BackBetListArray" class="backbetlist-color-good">
