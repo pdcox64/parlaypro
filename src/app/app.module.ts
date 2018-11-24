@@ -13,6 +13,7 @@ import { BuilderComponent } from '../components/builder/builder';
 import { MarketsComponent } from '../components/markets/markets';
 import { BetslipComponent } from '../components/betslip/betslip';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TestData} from '../globals/test-data';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,18 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     BuilderComponent,
     MarketsComponent,
     BetslipComponent,
+  //  TestData,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
   ],
+
+  exports: [
+   // TestData,
+ ], 
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -44,6 +51,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   providers: [
     StatusBar,
     SplashScreen,
+    TestData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

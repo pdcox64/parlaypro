@@ -65,7 +65,9 @@
             <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" class="laybetlist-color-good">
                 <ion-icon item-start name="{{laybet.icon}}" ></ion-icon>
                       {{laybet.date}} - {{laybet.sport}}: {{laybet.event}}<br/>
-                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v 
+                <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                <span class="winner-color">{{laybet.overunder}}</span>
               </ion-item>
               <div> 
                   <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
@@ -89,7 +91,9 @@
                 <ion-item *ngFor="let backbet of thisbackbets.BackBetListArray" class="backbetlist-color-good">
                     <ion-icon item-start name="{{backbet.icon}}" ></ion-icon>
                           {{backbet.date}} - {{backbet.sport}}: {{backbet.event}}<br/>
-                    <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                    <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                    <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                    <span class="winner-color">{{backbet.overunder}}</span>
                   </ion-item>
                   <div> 
                       <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
