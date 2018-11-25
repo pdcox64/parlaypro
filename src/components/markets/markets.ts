@@ -19,6 +19,7 @@ export class MarketsComponent {
   thissportlist=0;
   thiseventlist=0;
   thismarketlist=0;
+  thisoverunder='';
 
   sportsId = 0;
   eventsId = 0;
@@ -54,13 +55,28 @@ export class MarketsComponent {
     return this.winner;
  }
 
+ setRange(sport: Sports, range: string, type: number){
+
+    var retrange: string;
+
+    if(type==1){
+        retrange = "OVER " + range + " " +sport.overunder.type;
+    }
+    else
+    {
+      retrange = "UNDER " + range + " " +sport.overunder.type;
+    }
+    return retrange;
+
+ }
+
   addMatch(sport: Sports, event: SportEvents, market: Markets, marketdate: MarketsDates, betwin: BetWin, range: string){
     
     var overunder:string;
 
     if(range != '') // Over/Under Bet
     {
-      overunder = 'OVER/UNDER ' + range + ' ' + sport.overunder.type;
+      overunder = range;
       this.winner = 'None';
     }
     else // Moneyline Bet
@@ -96,6 +112,10 @@ export class MarketsComponent {
 
   setmarket(id: number): void{
     this.thismarketlist=id; 
+  }
+
+  setoverunder(range: string): void{
+    this.thisoverunder = range;
   }
 
 }

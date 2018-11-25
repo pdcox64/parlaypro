@@ -23,20 +23,37 @@
                                     <label class="marketdate">{{marketdate.date}}</label>
                                     <!-- list all markets in event-->
                                     <div *ngFor="let market of markets" (click)="onSelectMarket(market)"> 
+                                            
                                         <div *ngIf="event.id==eventsId && market.event==event.id && marketdate.id==market.date" >
                                                 <ion-label [class]="market.id==thismarketlist ? 'marketliston' : 'marketlistoff'" (click)="setmarket(market.id)">
+                                                     
                                                     <ion-icon class="marketicon" [color]="market.id==thismarketlist ? 'orange' : 'white'" name="arrow-dropright" ></ion-icon> 
                                                     {{market.market1}} v {{market.market2}}
                                                 </ion-label>
+                                                
+                                                <!--Moneyline-->
+                                                <div *ngIf="market.id==marketId">  
+                                                    <label class="overunder">Moneyline</label>
+                                                </div>
                                                 <div *ngFor="let betwin of betwins"> 
                                                     <div *ngIf="sport.id == betwin.sport && market.id==marketId">   
-                                                            <label class="betlist" (click)="addMatch(sport,event,market,marketdate,betwin,'')">{{getWinner(betwin.win,market)}} </label>
+                                                        <label class="betlist" (click)="addMatch(sport,event,market,marketdate,betwin,'')">{{getWinner(betwin.win,market)}} </label>
                                                     </div>
                                                 </div>
                                                 <!-- Over/Under-->
+                                                <div *ngIf="market.id==marketId">  
+                                                    <label class="overunder">OVER/UNDER</label>
+                                                </div>
                                                 <div *ngFor="let range of sport.overunder.range"> 
-                                                    <div *ngIf="market.id==marketId">  
-                                                        <label class="betlist" (click)="addMatch(sport,event,market,marketdate,'',range)">OVER/UNDER {{range}} {{sport.overunder.type}}</label>
+                                                    <div *ngIf="market.id==marketId">                           
+                                                        <ion-label [class]= "thisoverunder==range ? 'overunderon' : 'overunderoff'" (click)="setoverunder(range)">
+                                                            <ion-icon class="overundericon" [color]="thisoverunder==range ? 'orange' : 'white'" name="arrow-dropright" ></ion-icon> 
+                                                            OVER/UNDER {{range}} {{sport.overunder.type}}
+                                                        </ion-label>
+                                                        <div *ngIf="thisoverunder==range"> 
+                                                            <div class="overorunder" (click)="addMatch(sport,event,market,marketdate,'',setRange(sport,range,1))">Over</div>
+                                                            <div class="overorunder" (click)="addMatch(sport,event,market,marketdate,'',setRange(sport,range,2))">Under</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
