@@ -13,6 +13,7 @@ export class BetslipComponent {
   thislaybet = new LayBets;
   thisbackbet = new BackBets;
   toggle: number = 1;
+  placebets: boolean = true;
   
   constructor(public events: Events, public storage: Storage) {
 
@@ -38,6 +39,14 @@ export class BetslipComponent {
 
     matchedClick(){
       this.toggle=2;
+    }
+
+    placebetsClick(){
+      this.placebets=true;
+    }
+
+    openbetsClick(){
+      this.placebets=false;
     }
 
     getstoreddata(){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+
 import { BackBets, LayBets, BetSlip} from '../globals/mock-events';
 import {Injectable} from '@angular/core';
 

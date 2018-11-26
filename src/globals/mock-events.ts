@@ -30,6 +30,7 @@ export class LayBets{
     liability: string;
     processed: boolean;
     matched: boolean;
+    open: boolean;
     user: number;
     sport: number;
 }
@@ -41,6 +42,7 @@ export class BackBets{
     profit: string;
     processed: boolean;
     matched: boolean;
+    open: boolean;
     user: number;
     sport: number;
 }
