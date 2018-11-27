@@ -1,10 +1,19 @@
 markets {
    
     .markets-h2{
-        padding-top: 5px; 
-        padding-bottom: 5px;
-        margin-left:0px;
-        background-color: rgb(51, 51, 51);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        margin-top: 15px !important;
+        margin-left: 10px;
+        padding-top: 0; 
+        padding-bottom: 0;
+        text-transform: uppercase;
+        
+    }
+
+    .menu-item .item{
+        // padding-left: 20px;
     }
 
     #smallicon{
@@ -14,25 +23,37 @@ markets {
 
     .item-md{
         background-color: transparent;
+        padding-left: 0;
     }
 
     .item-block{
-        height: 30px !important;
+        height: 40px !important;
         min-height: 20px !important;
     }
 
+    .item-inner {
+        padding-right: 0 !important;
+    }
+
+    .item-inner .icon {
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
     .sportlistoff{
+        background-color: #1E1E1E;
         color: white;
-        font-size: 18px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family: 'Roboto';
-        padding-left: 0px;
+        padding-left: 20px;
         margin-left: 0px;
         cursor:pointer;
+        transition: background-color 0.2s ease;
     }
 
     .sportliston{
-        color:orange;
+        color:#FFBC1D;
         font-size: 18px;
         font-weight: bold; 
         font-family:'Roboto';
@@ -41,8 +62,9 @@ markets {
         cursor:pointer;
     }
     
-    .sportlistoff:hover { 
-        color: orange;
+    .sportlistoff:hover {
+        background-color: #353535;
+        color: #FFBC1D;
         cursor: pointer;
     }
     
@@ -52,12 +74,12 @@ markets {
     }
 
     .eventicon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
     .eventliston{
-        color: orange;
+        color: #FFBC1D;
         font-size: 16px;
         font-weight: bold; 
         font-family:'Roboto';
@@ -71,7 +93,7 @@ markets {
     }
     
     .eventlistoff:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
     
@@ -94,7 +116,7 @@ markets {
     }
     
     .marketliston{
-        color: orange;
+        color: #FFBC1D;
         font-size: 16px;
         font-weight: normal; 
         font-family:'Roboto';
@@ -108,7 +130,7 @@ markets {
     }
     
     .marketlistoff:hover { 
-        color : orange;
+        color : #FFBC1D;
         cursor: pointer;
     }
 
@@ -118,7 +140,7 @@ markets {
     }
 
     .marketicon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
@@ -132,7 +154,7 @@ markets {
     }
 
     .betlist:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 

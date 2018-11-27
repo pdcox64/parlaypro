@@ -3,7 +3,7 @@
   <h2 class="markets-h2">All Sports</h2>
     <div >
         <div *ngFor="let sport of sports" (click)="onSelect(sport)">
-            <div>
+            <div class="menu-item">
                 <ion-item no-lines>
                         <ion-label [class]="sport.id==thissportlist ? 'sportliston' : 'sportlistoff'" (click)="setsport(sport.id)">
                             <ion-icon [color]="sport.id==thissportlist ? 'orange' : 'white'" item-start [name]="sport.icon" ></ion-icon>
