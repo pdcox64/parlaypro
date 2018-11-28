@@ -102,11 +102,11 @@ markets {
 
     .market-label {
         display: block;
-        margin-top: 5px;
+        margin-top: 10px;
     }
     
     .marketdate{
-        color: #ffffff;
+        color: #ECECEC;
         font-size: 12px;
         font-weight: 500; 
         font-family:'Roboto';
@@ -116,7 +116,7 @@ markets {
     }
 
     .overunder{
-        color:#ffffff;
+        color:#ECECEC;
         font-size: 14px;
         font-weight: 500; 
         font-family:'Roboto';
@@ -125,6 +125,7 @@ markets {
         margin-top: 20px;
         text-transform: uppercase;
     }
+
 
     .marketdatestyle{
         padding-bottom: 10px; 
@@ -215,6 +216,10 @@ markets {
         line-height: normal;
         padding-left: 100px;
         // height: "18px";
+    }
+
+    .overorunder:last-of-type {
+        margin-bottom: 3px;
     }
 
     .overorunder:hover{
