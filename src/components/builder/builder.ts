@@ -86,8 +86,11 @@ export class BuilderComponent {
                 this.backbets.BackBetListArray.push(this.betlist);
           }
           this.backodds = bet;
-          this.backstake = stake;
+          this.backstake = stake;   
+          this.backbets.matched = true;
+          this.backbets.open=false;
       });
+
       events.subscribe('matchedbackbets', (matchedbets: LayBets, bet: string, stake: string) => {
           // matched back bets
           this.laybets = new LayBets;
@@ -104,10 +107,12 @@ export class BuilderComponent {
                   // add back bet
                   this.laybetcounter++;
                   this.laybets.LayBetListArray.push(this.betlist);
-              }
-              this.layodds = bet;
-              this.laystake = stake;
-        });
+          }
+          this.layodds = bet;
+          this.laystake = stake;
+          this.laybets.matched = true;
+          this.laybets.open = false;
+      });
       
 
     events.subscribe('market', (sport, event, market, marketdate, winner, range) => {
@@ -126,16 +131,17 @@ export class BuilderComponent {
           // add lay bet
           this.laybetcounter++;
           this.laybets.processed = false;  
+          this.laybets.open = true;
           this.laybets.LayBetListArray.push(this.betlist);
       }
       else{
           // add back bet
           this.backbetcounter++;
           this.backbets.processed = false;
+          this.backbets.open = true;
           this.backbets.BackBetListArray.push(this.betlist);
         }
       });
-
     }
 
     messageBar(messageType: string, message: string) {
@@ -202,10 +208,11 @@ export class BuilderComponent {
           this.updateLiability();
           this.laybetcounter=0;
           this.laybets.processed = true;
+          this.laybets.open = true;
           this.laybets.liability = this.layliability;
           this.laybets.odds = this.layodds;
           this.laybets.stake = this.laystake;
-          this.laybets.matched = false;
+          if(this.laybets.matched != true){this.laybets.matched=false};
           this.betslip.laybetsliparray.push(this.laybets);
           this.events.publish('bets',this.laybets, this.toggle);
            // deduct from balance
@@ -225,10 +232,11 @@ export class BuilderComponent {
 
         this.backbetcounter=0;
         this.backbets.processed = true;
+        this.backbets.open=true;
         this.backbets.profit = this.backprofit;
         this.backbets.odds = this.backodds;
         this.backbets.stake = this.backstake;
-        this.backbets.matched = false;
+        if(this.backbets.matched != true){this.backbets.matched=false};
         this.betslip.backbetsliparray.push(this.backbets);
         this.events.publish('bets',this.backbets, this.toggle);
          // deduct from balance
@@ -452,6 +460,7 @@ export class BuilderComponent {
           laybets.odds = "3.55";
           laybets.liability = "1000";
           laybets.processed = true;
+          laybets.open = false;
           laybets.user=1;
           laybets.matched=true;
           this.betslip.laybetsliparray.push(laybets); 
@@ -463,6 +472,7 @@ export class BuilderComponent {
           laybets.odds = "2.20";
           laybets.liability = "1000";
           laybets.processed = true;
+          laybets.open = false;
           laybets.user=1;
           laybets.matched=true;
           this.betslip.laybetsliparray.push(laybets); 
@@ -474,6 +484,7 @@ export class BuilderComponent {
           backbets.odds = "4.01";
           backbets.profit = "1000";
           backbets.processed = true;
+          backbets.open = false;
           backbets.user=1;
           backbets.matched=true;
           this.betslip.backbetsliparray.push(backbets);

@@ -13,10 +13,12 @@ export class BetslipComponent {
   thislaybet = new LayBets;
   thisbackbet = new BackBets;
   toggle: number = 1;
+  placebets: boolean = true;
   
   constructor(public events: Events, public storage: Storage) {
 
         // load saved betslips
+        // more comments
         this.getstoreddata();
 
         events.subscribe('bets', (bets, type) => {
@@ -24,7 +26,7 @@ export class BetslipComponent {
         if(type ==1 ){ //lay bets 
             this.betslip.laybetsliparray.push(betscopy);
         }
-        
+
         else{ //back bets
             this.betslip.backbetsliparray.push(betscopy);
         }      
@@ -37,6 +39,14 @@ export class BetslipComponent {
 
     matchedClick(){
       this.toggle=2;
+    }
+
+    placebetsClick(){
+      this.placebets=true;
+    }
+
+    openbetsClick(){
+      this.placebets=false;
     }
 
     getstoreddata(){

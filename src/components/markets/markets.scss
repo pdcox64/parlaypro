@@ -110,6 +110,16 @@ markets {
         margin-top: 20px;
     }
 
+    .overunder{
+        color:rgb(209, 156, 104);
+        font-size: 14px;
+        font-weight: bold; 
+        font-family:'Roboto';
+        padding-left: 80px;
+        padding-bottom: 20px;
+        margin-top: 20px;
+    }
+
     .marketdatestyle{
         padding-bottom: 10px; 
         border-width: 2px; 
@@ -147,17 +157,60 @@ markets {
         cursor: pointer;
     }
 
+    .overundericon{
+        font-size: 18px;
+        padding-left: 80px;
+    }
+
+    .overundericon:hover{
+        color :orange;
+        cursor: pointer;
+    }
+
+
     .betlist{
         color: white;
         font-size: 16px;
         font-weight: normal; 
         font-family:'Roboto';
         padding-left: 80px;
-       
+    }
+
+    .overunderon{
+        color: orange;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family:'Roboto';
+    }
+    
+    .overunderoff{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family:'Roboto';
+    }
+
+    .overunderoff:hover { 
+        color :orange;
+        cursor: pointer;
     }
 
     .betlist:hover { 
         color :#FFBC1D;
+        cursor: pointer;
+    }
+
+    .overorunder{
+        color: white;
+        font-size: 16px;
+        font-weight: normal; 
+        font-family:'Roboto';
+        padding-left: 100px;
+        height: "18px";
+    }
+
+    .overorunder:hover{
+        color: orange;
         cursor: pointer;
     }
 

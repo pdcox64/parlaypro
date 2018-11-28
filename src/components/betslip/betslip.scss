@@ -15,25 +15,79 @@ betslip {
         color: color($colors,dark_text);
     }
 
+    .betslipbutton{
+        height: 40px;
+        width: 100%;
+        background-color: #ffa500;
+        color: rgb(17, 17, 17);
+        font-family:'Roboto';
+        font-size: 20px;  
+        padding: 0px;  
+       
+    }
+
+    .betslipbutton:hover{
+        cursor:pointer;
+        background-color: rgb(255, 201, 102);
+    }
+
     .tabselected{
         color: orange;
         cursor: pointer;
+        font-size: 14pt;
         font-weight: bold !important;
     }
 
     .tabnotselected {
         color: whitesmoke;
         cursor: pointer;
+        font-size: 14pt;
+    }
+
+    .placetabselected{
+        color: orange;
+        cursor: pointer;
+        font-size: 16pt;
+        font-weight: bold !important;
+    }
+
+    .placetabnotselected {
+        color: whitesmoke;
+        cursor: pointer;
+        font-size: 16pt;
+    }
+
+    .opentabselected{
+        color: orange;
+        cursor: pointer;
+        font-size: 16pt;
+        font-weight: bold !important;
+    }
+
+    .opentabnotselected {
+        color: whitesmoke;
+        cursor: pointer;
+        font-size: 16pt;
     }
 
     .unmatched-tab{
-        background-color: rgb(70, 65, 64); 
+        background-color: rgb(90, 90, 90); 
         height: 680px;
     }
 
     .matched-tab{
-        background-color: rgb(88, 78, 76);
+        background-color: rgb(107, 107, 107);
         height: 680px;
+    }
+
+    .placedbets-tab{
+        background-color: rgb(56, 56, 56);
+        height: 500px;
+    }
+
+    .openbets-tab{
+        background-color: rgb(71, 71, 71);
+        height: 30px;
     }
     
     .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{

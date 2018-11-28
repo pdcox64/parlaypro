@@ -23,35 +23,35 @@
             <ion-col>
                   <div [class] = "sport==1 ? 'sportselected' : 'sportnotselected'">
                     <ion-item text-center  [class] = "sport==1 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(1)">
-                        <ion-icon name = "football"></ion-icon>
+                        <ion-icon name = "football"></ion-icon><div style="font-size: 8pt">Soccer</div>
                     </ion-item>
                   </div>
             </ion-col>
             <ion-col>
               <div [class] = "sport==2 ? 'sportselected' : 'sportnotselected'">
                 <ion-item text-center [class] = "sport==2 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(2)">
-                    <ion-icon name = "american-football"></ion-icon>
+                    <ion-icon name = "american-football"></ion-icon><div style="font-size: 8pt">Football</div>
                 </ion-item>
                 </div>
               </ion-col>
             <ion-col>
               <div [class] = "sport==3 ? 'sportselected' : 'sportnotselected'">
                 <ion-item text-center [class] = "sport==3 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(3)">
-                    <ion-icon name = "baseball"></ion-icon>
+                    <ion-icon name = "baseball"></ion-icon><div style="font-size: 8pt">Baseball</div>
                 </ion-item>
                 </div>
               </ion-col>
             <ion-col>
               <div [class] = "sport==4 ? 'sportselected' : 'sportnotselected'">
                 <ion-item text-center [class] = "sport==4 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(4)">
-                    <ion-icon name = "basketball"></ion-icon>
+                    <ion-icon name = "basketball"></ion-icon><div style="font-size: 8pt">Basketball</div>
                 </ion-item>
                 </div>
             </ion-col>
             <ion-col>
               <div [class] = "sport==5 ? 'sportselected' : 'sportnotselected'">
                 <ion-item text-center [class] = "sport==5 ? 'tabselected' : 'tabnotselected'" (click) = "sportClick(5)">
-                    <ion-icon name = "tennisball"></ion-icon>
+                    <ion-icon name = "tennisball"></ion-icon><div style="font-size: 8pt">Tennis</div>
                 </ion-item>
                 </div>
             </ion-col>
@@ -59,13 +59,15 @@
     </ion-grid>
 
     <!-- Lay Bets -->
-    <div *ngIf="bettype==1" style="height: 90%; background-color:rgb(70, 65, 64);">
+    <div *ngIf="bettype==1" style="height: 89%; background-color:rgb(70, 65, 64);">
         <div *ngFor="let thislaybets of betslip.laybetsliparray"> 
           <div *ngIf="thislaybets.sport==sport"  >
             <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" class="laybetlist-color-good">
                 <ion-icon item-start name="{{laybet.icon}}" ></ion-icon>
                       {{laybet.date}} - {{laybet.sport}}: {{laybet.event}}<br/>
-                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v 
+                <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                <span class="winner-color">{{laybet.overunder}}</span>
               </ion-item>
               <div> 
                   <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
@@ -83,13 +85,15 @@
     </div>
     
     <!--Back Bets -->    
-        <div *ngIf="bettype==2" style="height: 90%; background-color:rgb(70, 65, 64);">
+        <div *ngIf="bettype==2" style="height: 89%; background-color:rgb(70, 65, 64);">
             <div *ngFor="let thisbackbets of betslip.backbetsliparray"> 
               <div *ngIf="thisbackbets.sport==sport"  >
                 <ion-item *ngFor="let backbet of thisbackbets.BackBetListArray" class="backbetlist-color-good">
                     <ion-icon item-start name="{{backbet.icon}}" ></ion-icon>
                           {{backbet.date}} - {{backbet.sport}}: {{backbet.event}}<br/>
-                    <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                    <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                    <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                    <span class="winner-color">{{backbet.overunder}}</span>
                   </ion-item>
                   <div> 
                       <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
