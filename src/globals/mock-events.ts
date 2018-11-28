@@ -141,7 +141,7 @@ export const MARKETS: Markets[] = [
     {id: 19, market1: 'Milan', market2: 'Juventus', event: 3, date: 10 },
 
     // Football NFL
-    {id: 20, market1: 'Arizona Carinals', market2: 'Green Bay Packers', event: 1, date: 4 },
+    {id: 20, market1: 'Arizona Cardinals', market2: 'Green Bay Packers', event: 1, date: 4 },
     {id: 12, market1: 'Baltimore Ravens', market2: 'Houston Texans', event: 1, date: 4 },
     {id: 22, market1: 'Buffalo Bills', market2: 'Indianapolis Colts', event: 1, date: 4 },
     {id: 23, market1: 'Carolina Panthers', market2: 'Jacksonville Jaguars', event: 1, date: 4 },

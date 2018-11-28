@@ -54,12 +54,14 @@ markets {
 
     .sportliston{
         color:#FFBC1D;
-        font-size: 18px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
-        padding-left: 0px;
+        padding-left: 20px;
         margin-left: 0px;
         cursor:pointer;
+        transition: background-color 0.2s ease;
+
     }
     
     .sportlistoff:hover {
@@ -71,6 +73,7 @@ markets {
     .eventicon{
         font-size: 18px;
         padding-left: 45px;
+        margin: 10px 3px 10px 0;
     }
 
     .eventicon:hover{
@@ -80,15 +83,15 @@ markets {
 
     .eventliston{
         color: #FFBC1D;
-        font-size: 16px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
     }
 
     .eventlistoff{
         color: white;
-        font-size: 16px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
     }
     
@@ -108,7 +111,6 @@ markets {
     }
 
     .marketdatestyle{
-        padding-top: 10px;
         padding-bottom: 10px; 
         border-width: 2px; 
         border-bottom-style: inset;
@@ -124,9 +126,10 @@ markets {
     
     .marketlistoff{
         color: white;
-        font-size: 16px;
-        font-weight: normal; 
+        font-size: 14px;
+        font-weight: 700; 
         font-family:'Roboto';
+        margin: 5px 0;
     }
     
     .marketlistoff:hover { 
