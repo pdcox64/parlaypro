@@ -32,7 +32,7 @@
                                                 </ion-label>
                                                 
                                                 <!--Moneyline-->
-                                                <div *ngIf="market.id==marketId">  
+                                                <div *ngIf="market.id==marketId" class="market-label">  
                                                     <label class="overunder">Moneyline</label>
                                                 </div>
                                                 <div *ngFor="let betwin of betwins"> 
@@ -41,7 +41,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- Over/Under-->
-                                                <div *ngIf="market.id==marketId">  
+                                                <div *ngIf="market.id==marketId" class="market-label">  
                                                     <label class="overunder">OVER/UNDER</label>
                                                 </div>
                                                 <div *ngFor="let range of sport.overunder.range"> 

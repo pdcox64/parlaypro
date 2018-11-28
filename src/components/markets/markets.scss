@@ -99,11 +99,16 @@ markets {
         color :#FFBC1D;
         cursor: pointer;
     }
+
+    .market-label {
+        display: block;
+        margin-top: 5px;
+    }
     
     .marketdate{
-        color:rgb(209, 156, 104);
+        color: #ffffff;
         font-size: 12px;
-        font-weight: bold; 
+        font-weight: 500; 
         font-family:'Roboto';
         padding-left: 55px;
         padding-bottom: 20px;
@@ -111,13 +116,14 @@ markets {
     }
 
     .overunder{
-        color:rgb(209, 156, 104);
+        color:#ffffff;
         font-size: 14px;
-        font-weight: bold; 
+        font-weight: 500; 
         font-family:'Roboto';
         padding-left: 80px;
         padding-bottom: 20px;
         margin-top: 20px;
+        text-transform: uppercase;
     }
 
     .marketdatestyle{
@@ -129,9 +135,10 @@ markets {
     
     .marketliston{
         color: #FFBC1D;
-        font-size: 16px;
-        font-weight: normal; 
+        font-size: 14px;
+        font-weight: 700; 
         font-family:'Roboto';
+        margin: 5px 0;
     }
     
     .marketlistoff{
@@ -157,41 +164,41 @@ markets {
         cursor: pointer;
     }
 
-    .overundericon{
+    .overundericon {
         font-size: 18px;
         padding-left: 80px;
     }
 
     .overundericon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
 
     .betlist{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
         padding-left: 80px;
     }
 
     .overunderon{
-        color: orange;
-        font-size: 16px;
+        color: #FFBC1D;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
     }
     
     .overunderoff{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
     }
 
     .overunderoff:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
@@ -202,15 +209,16 @@ markets {
 
     .overorunder{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
+        line-height: normal;
         padding-left: 100px;
-        height: "18px";
+        // height: "18px";
     }
 
     .overorunder:hover{
-        color: orange;
+        color: #FFBC1D;
         cursor: pointer;
     }
 
