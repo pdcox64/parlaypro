@@ -14,23 +14,66 @@ export class BetslipComponent {
   thisbackbet = new BackBets;
   toggle: number = 1;
   placebets: boolean = true;
+  totalbetamount: string;
+  transactionfee: number = 0.00012;
+  thisbetamount: string;
   
   constructor(public events: Events, public storage: Storage) {
 
         // load saved betslips
         // more comments
-        this.getstoreddata();
+      this.getstoreddata();
 
-        events.subscribe('bets', (bets, type) => {
-        var betscopy = JSON.parse(JSON.stringify(bets));
-        if(type ==1 ){ //lay bets 
-            this.betslip.laybetsliparray.push(betscopy);
-        }
+      this.totalbetamount = "";
+      this.transactionfee = 0.00012;
 
-        else{ //back bets
-            this.betslip.backbetsliparray.push(betscopy);
-        }      
+      events.subscribe('bets', (bets, type, thisbet) => {
+       
+          var betscopy = JSON.parse(JSON.stringify(bets));
+          if(type ==1 ){ //lay bets 
+              this.betslip.laybetsliparray.push(betscopy);
+          }
+          else{ //back bets
+              this.betslip.backbetsliparray.push(betscopy);
+          }   
+          // update the totals
+          this.thisbetamount = this.calculateTotalBet(this.betslip).toFixed(5).toString();
+          this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
+          
       });
+    }
+
+    calculateTotalLayBetLiability(thisbetslip: BetSlip): number{
+        var total: number = 0;  
+       
+        for(let laybet of thisbetslip.laybetsliparray)
+        {
+            if(laybet.open){
+                total += Number(laybet.liability);}
+        }
+        return total;
+    }
+
+    calculateTotalBackBetStake(thisbetslip: BetSlip): number{
+      var total: number = 0;  
+      
+        for(let backbet of thisbetslip.backbetsliparray)
+        {
+            if(backbet.open){
+              total += Number(backbet.stake);}            
+        }
+        return total;
+    }
+
+    calculateTotalBet(thisbetslip: BetSlip){
+
+      var totalbetamount: number;
+
+      // total bet amount = total liablity + total stake.
+      totalbetamount = this. calculateTotalLayBetLiability(thisbetslip);
+      totalbetamount += this.calculateTotalBackBetStake(thisbetslip);
+
+      return totalbetamount;
     }
 
     unmatchedClick(){
@@ -47,6 +90,10 @@ export class BetslipComponent {
 
     openbetsClick(){
       this.placebets=false;
+    }
+
+    formatNumber(amount: number){
+      return amount.toFixed(5).toString();
     }
 
     getstoreddata(){

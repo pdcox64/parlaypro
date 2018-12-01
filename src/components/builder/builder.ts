@@ -214,7 +214,7 @@ export class BuilderComponent {
           this.laybets.stake = this.laystake;
           if(this.laybets.matched != true){this.laybets.matched=false};
           this.betslip.laybetsliparray.push(this.laybets);
-          this.events.publish('bets',this.laybets, this.toggle);
+          this.events.publish('bets',this.laybets,this.toggle);
            // deduct from balance
           this.events.publish('liability', this.layliability);
           // reset odds etc.
