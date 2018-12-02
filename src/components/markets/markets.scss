@@ -1,10 +1,19 @@
 markets {
    
     .markets-h2{
-        padding-top: 5px; 
-        padding-bottom: 5px;
-        margin-left:0px;
-        background-color: rgb(51, 51, 51);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        margin-top: 15px !important;
+        margin-left: 10px;
+        padding-top: 0; 
+        padding-bottom: 0;
+        text-transform: uppercase;
+        
+    }
+
+    .menu-item .item{
+        // padding-left: 20px;
     }
 
     #smallicon{
@@ -14,71 +23,92 @@ markets {
 
     .item-md{
         background-color: transparent;
+        padding-left: 0;
     }
 
     .item-block{
-        height: 30px !important;
+        height: 40px !important;
         min-height: 20px !important;
     }
 
+    .item-inner {
+        padding-right: 0 !important;
+    }
+
+    .item-inner .icon {
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
     .sportlistoff{
+        background-color: #1E1E1E;
         color: white;
-        font-size: 18px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family: 'Roboto';
-        padding-left: 0px;
+        padding-left: 20px;
         margin-left: 0px;
         cursor:pointer;
+        transition: background-color 0.2s ease;
     }
 
     .sportliston{
-        color:orange;
-        font-size: 18px;
-        font-weight: bold; 
+        color:#FFBC1D;
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
-        padding-left: 0px;
+        padding-left: 20px;
         margin-left: 0px;
         cursor:pointer;
+        transition: background-color 0.2s ease;
+
     }
     
-    .sportlistoff:hover { 
-        color: orange;
+    .sportlistoff:hover {
+        background-color: #353535;
+        color: #FFBC1D;
         cursor: pointer;
     }
     
     .eventicon{
         font-size: 18px;
         padding-left: 45px;
+        margin: 10px 3px 10px 0;
     }
 
     .eventicon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
     .eventliston{
-        color: orange;
-        font-size: 16px;
-        font-weight: bold; 
+        color: #FFBC1D;
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
     }
 
     .eventlistoff{
         color: white;
-        font-size: 16px;
-        font-weight: bold; 
+        font-size: 14px;
+        font-weight: 500; 
         font-family:'Roboto';
     }
     
     .eventlistoff:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
+    }
+
+    .market-label {
+        display: block;
+        margin-top: 10px;
     }
     
     .marketdate{
-        color:rgb(209, 156, 104);
+        color: #ECECEC;
         font-size: 12px;
-        font-weight: bold; 
+        font-weight: 500; 
         font-family:'Roboto';
         padding-left: 55px;
         padding-bottom: 20px;
@@ -86,17 +116,18 @@ markets {
     }
 
     .overunder{
-        color:rgb(209, 156, 104);
+        color:#ECECEC;
         font-size: 14px;
-        font-weight: bold; 
+        font-weight: 500; 
         font-family:'Roboto';
         padding-left: 80px;
         padding-bottom: 20px;
         margin-top: 20px;
+        text-transform: uppercase;
     }
 
+
     .marketdatestyle{
-        padding-top: 10px;
         padding-bottom: 10px; 
         border-width: 2px; 
         border-bottom-style: inset;
@@ -104,21 +135,23 @@ markets {
     }
     
     .marketliston{
-        color: orange;
-        font-size: 16px;
-        font-weight: normal; 
+        color: #FFBC1D;
+        font-size: 14px;
+        font-weight: 700; 
         font-family:'Roboto';
+        margin: 5px 0;
     }
     
     .marketlistoff{
         color: white;
-        font-size: 16px;
-        font-weight: normal; 
+        font-size: 14px;
+        font-weight: 700; 
         font-family:'Roboto';
+        margin: 5px 0;
     }
     
     .marketlistoff:hover { 
-        color : orange;
+        color : #FFBC1D;
         cursor: pointer;
     }
 
@@ -128,64 +161,69 @@ markets {
     }
 
     .marketicon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
-    .overundericon{
+    .overundericon {
         font-size: 18px;
         padding-left: 80px;
     }
 
     .overundericon:hover{
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
 
     .betlist{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
         padding-left: 80px;
     }
 
     .overunderon{
-        color: orange;
-        font-size: 16px;
+        color: #FFBC1D;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
     }
     
     .overunderoff{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
     }
 
     .overunderoff:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
     .betlist:hover { 
-        color :orange;
+        color :#FFBC1D;
         cursor: pointer;
     }
 
     .overorunder{
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
+        line-height: normal;
         padding-left: 100px;
-        height: "18px";
+        // height: "18px";
+    }
+
+    .overorunder:last-of-type {
+        margin-bottom: 3px;
     }
 
     .overorunder:hover{
-        color: orange;
+        color: #FFBC1D;
         cursor: pointer;
     }
 

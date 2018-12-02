@@ -3,7 +3,7 @@
   <h2 class="markets-h2">All Sports</h2>
     <div >
         <div *ngFor="let sport of sports" (click)="onSelect(sport)">
-            <div>
+            <div class="menu-item">
                 <ion-item no-lines>
                         <ion-label [class]="sport.id==thissportlist ? 'sportliston' : 'sportlistoff'" (click)="setsport(sport.id)">
                             <ion-icon [color]="sport.id==thissportlist ? 'orange' : 'white'" item-start [name]="sport.icon" ></ion-icon>
@@ -32,7 +32,7 @@
                                                 </ion-label>
                                                 
                                                 <!--Moneyline-->
-                                                <div *ngIf="market.id==marketId">  
+                                                <div *ngIf="market.id==marketId" class="market-label">  
                                                     <label class="overunder">Moneyline</label>
                                                 </div>
                                                 <div *ngFor="let betwin of betwins"> 
@@ -41,7 +41,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- Over/Under-->
-                                                <div *ngIf="market.id==marketId">  
+                                                <div *ngIf="market.id==marketId" class="market-label">  
                                                     <label class="overunder">OVER/UNDER</label>
                                                 </div>
                                                 <div *ngFor="let range of sport.overunder.range"> 

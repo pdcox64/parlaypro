@@ -1,5 +1,4 @@
 
- 
     .button-round-md, .button-md{
         background-color:orange;
         width: 200px;
@@ -14,26 +13,30 @@
         background-size: cover;
     }
 
+    .header-md::after {
+        background-image: none; 
+    }
+
     h1{
         color: white;
         font-size: 32px;
         font-weight: bold; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif
     }
     
     h2{
        
-        color: orange;
+        color: #FFBC1D;
         font-size: 20px;
         font-weight: bold; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif
     }
     
     h3{
         color: white;
         font-size: 16px;
         font-weight: normal; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        font-family: 'Roboto', Arial, sans-serif
     }
     
     .background-dark{
@@ -42,19 +45,30 @@
     .title{
         font-size: 64px;
         font-weight: bold; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        font-family: 'Roboto', Arial, sans-serif
     }
     
     #float-left{
         float: left;
     }
+
+    .title-white,
+    .title-orange {
+        display: inline-block;
+        font-size: 36px;
+        letter-spacing: -1px;
+        margin-top: 4px;
+        vertical-align: top;
+    }
     
     .title-white{
         color: white;  
+        font-weight: 700;
     }
     
     .title-orange{
-       color: orange
+       color: #FFBC1D;
+       font-weight: 300;
     }
     
     .button-huge {

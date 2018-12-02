@@ -2,22 +2,22 @@
   <ion-title text-left class="maintitle">
       <ion-grid>
           <ion-row>
-              <ion-col col-4>
-                    <img width="40" height="40" alt="ParlayPro Logo" src= "/assets/imgs/BookiePro.png">
-                    <span class ="title-white" style="vertical-align: top; font-size: 28pt" >Parlay</span>
-                    <span class ="title-orange" style="vertical-align: top; font-size: 28pt; margin-left:0">Pro</span>
+              <ion-col col-6>
+                    <img width="40" height="40" alt="ParlayPro Logo" src= "/assets/imgs/BookiePro.png" class="logo">
+                    <span class ="title-white">Parlay</span><span class ="title-orange">Pro</span>
               </ion-col>
-              <ion-col col-4 text-center>
-                    <ion-icon style="font-size:30pt" name="clock"></ion-icon> <div style="font-size: 12pt">Local Time <span style="color:orange">{{localtime | date:'HH:mm:ss'}}</span></div>
-              </ion-col>
-              <ion-col col-4 text-right>
+              <!-- <ion-col col-4 text-center>
+                    <ion-icon style="font-size:30pt" name="clock"></ion-icon> 
+                    <div style="font-size: 12pt">Local Time <span style="color:orange">{{localtime | date:'HH:mm:ss'}}</span></div>
+              </ion-col> -->
+              <ion-col col-6 text-right>
                   <ion-row class="thin-row">
                         <ion-col class = "small-icon">
                             <ion-icon item-start name="person"> </ion-icon> &nbsp;{{username}}
                         </ion-col>  
                   </ion-row>
                   <ion-row class="thick-row" text-right>
-                        <ion-col>
+                        <ion-col no-padding>
                                 <ion-icon item-start name="logo-bitcoin" style="font-size:20pt"> </ion-icon>{{balance}}
                           </ion-col>
                     </ion-row>
@@ -27,11 +27,11 @@
   </ion-title>
 </ion-header>
 
-<ion-content padding style= "background-color: #292828">
+<ion-content padding style= "background-color: #1E1E1E">
   <h3>
       <ion-grid>
-          <ion-row>
-            <ion-col col-3 >
+          <ion-row no-padding>
+            <ion-col col-3 no-padding>
                 <div>
                     <markets></markets>
                   </div>
