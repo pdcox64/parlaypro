@@ -86,7 +86,7 @@ builder {
         height: 40px;
         width: 100%;
         background-color: #FFBC1D;
-        color: white;
+        color: #000000;
         font-family:'Roboto';
         font-size: 20px;  
         padding: 0px;  
@@ -114,7 +114,7 @@ builder {
         padding: 0px;  
         height: 40px !important;
         border-style: solid !important;
-        border-width: 1px !important;
+        border-width: 1px 0 1px 1px !important;
         border-color: color($colors, "disabled") !important;
     }
 
@@ -139,7 +139,7 @@ builder {
 
     .backbetodds{
         height: 30px;
-        color: color($colors,dark_text);
+        color: #ffffff;
         background-color:color($colors,dark_blue);
         font-family:'Roboto';
         font-size: 16px;
@@ -210,11 +210,14 @@ builder {
         padding-right: 30px; 
      }
 
+     .backers-col .ion-logo-bitcoin {
+         line-height: 1.2;
+     }
+
      .nocontent{
-        font-size: 60pt;
-        color: rgb(94, 93, 93); 
+        font-size: 48px;
+        color: #8f8f8f; 
         padding-top: 100px;
-        text-shadow: 0px 1px 0px rgba(255,255,255,.5); 
      }
 
     .arrows{
@@ -244,9 +247,7 @@ builder {
     }
 
     .addbet-button:hover{
-        background-color:rgb(190, 111, 7);
-       // color: orange;
-        font-weight: bold;
+        background-color:#cc9617;
     }
 
     .laybet-tab{
@@ -273,9 +274,8 @@ builder {
     }
     
     .contentstyle{
-        background-image: url("/assets/imgs/tile_bg.png");
+        background-color: #000;
         height: 750px;
-        
     }
     #smallicon{
         font-size: 20px;
@@ -322,5 +322,9 @@ builder {
 .item-block{
     min-height: 0px !important;
     height: 80px !important;
+}
+
+.item-block .item-inner {
+    border-bottom: 0 !important;
 }
 

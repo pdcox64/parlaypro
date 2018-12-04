@@ -178,9 +178,11 @@ markets {
 
     .betlist{
         color: white;
+        display: block;
         font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
+        margin: 5px 0;
         padding-left: 80px;
     }
 
@@ -210,10 +212,12 @@ markets {
 
     .overorunder{
         color: white;
+        display: block;
         font-size: 14px;
         font-weight: normal; 
         font-family:'Roboto';
         line-height: normal;
+        margin: 5px 0;
         padding-left: 100px;
         // height: "18px";
     }
