@@ -13,11 +13,12 @@
 </div>
 
 <!-- Place Bets-->
+
 <ion-content class="placedbets-tab" text-center *ngIf="placebets==true">
         <!-- Loop for each lay betslip-->
         <div *ngFor = "let laybetslip of betslip.laybetsliparray" style="padding-bottom: 5px">
             <!-- loop for each bet in each betslip-->
-            <div *ngIf = "laybetslip.matched==false && laybetslip.open==true">
+            <div *ngIf = "laybetslip.open==true && toggle==1">
                 <div > <ion-icon class="logo lay-paperclip" name="attach"></ion-icon></div>
                 <div class="notestyle noterotate" >
                     <div class="notetext">
@@ -45,32 +46,64 @@
                     </div>
                 </div>
             </div>
+
+    <div *ngFor = "let backbetslip of betslip.backbetsliparray" style="padding-bottom: 5px">
+        <!-- loop for each bet in each betslip-->
+        <div *ngIf = "backbetslip.open==true">
+            <div > <ion-icon class="logo lay-paperclip" name="attach"></ion-icon></div>
+            <div class="notestyle noterotate" >
+                <div class="notetext">
+                    <ion-item *ngFor = "let backbet of backbetslip.BackBetListArray" class="textcontent" > 
+                        <ion-icon item-start [name]="backbet.icon" style="color:black; font-size: 24px" ></ion-icon>
+                        <ion-label> {{backbet.date}}<br/>{{backbet.sport}}: {{backbet.event}}<br/>
+                            <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                            <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span><br/>
+                            <span class="winner-color">{{backbet.overunder}}</span>
+                        </ion-label>
+                    </ion-item>
+                        <ion-grid class="textcontent" style="height: 44px !important;">
+                        <ion-row>
+                            <ion-col class="back-stake-title">Odds</ion-col>
+                            <ion-col class="back-stake-title">Stake</ion-col>
+                            <ion-col class="back-stake-title">Profit</ion-col>
+                        </ion-row>
+                        <ion-row >
+                            <ion-col class="back-stake-content">{{backbetslip.odds}}</ion-col>
+                            <ion-col class="back-stake-content">{{backbetslip.stake}}</ion-col>
+                            <ion-col class="back-stake-content">{{backbetslip.profit}}</ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </div>
+            </div>
+        </div>
 </ion-content>
 
 <div style="height: 100px" text-center *ngIf="placebets==true">
     <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
         <ion-row style="height:20px">
-            <ion-col col-10 style="text-align:right">Bet Amount</ion-col>
-            <ion-col col-2 style="text-align:left">{{thisbetamount}}</ion-col>
+            <ion-col col-9 style="text-align:right">Bet Amount</ion-col>
+            <ion-col col-3 style="text-align:left">{{thisbetamount}}</ion-col>
         </ion-row>
         <ion-row style="height:20px">
-            <ion-col col-10 style="text-align:right">Transaction Fee</ion-col>
-            <ion-col col-2 style="text-align:left">{{transactionfee}}</ion-col>
+            <ion-col col-9 style="text-align:right">Transaction Fee</ion-col>
+            <ion-col col-3 style="text-align:left">{{transactionfee}}</ion-col>
         </ion-row>
         <ion-row style="height:20px">
-            <ion-col col-10 style="text-align:right">Total</ion-col>
-            <ion-col col-2 style="text-align:left">{{totalbetamount}}</ion-col>
+            <ion-col col-9 style="text-align:right">Total</ion-col>
+            <ion-col col-3 style="text-align:left">{{totalbetamount}}</ion-col>
         </ion-row>
         <ion-row  style="padding-top: 10px" class="backbetodds">
                 <ion-col col-6 >
-                        <button class="betslipbutton">Cancel All Bets</button>
+                        <button class="betslipbutton" (click)="cancelAllBets()">Cancel All Bets</button>
                 </ion-col>
                 <ion-col col- >
-                        <button class="betslipbutton">Place Bet</button>
+                        <button class="betslipbutton" (click)="placeBets()">Place Bet</button>
                 </ion-col>
             </ion-row>
     </ion-grid>
 </div>
+
 
 <!--Open Bets-->
 <div class="openbets-tab" text-center *ngIf="placebets==false"> 
@@ -155,7 +188,7 @@
       </ion-content>
 
       <!--Matched Bets-->
-      <ion-content class="matched-tab" text-center *ngIf="toggle==2"> 
+      <ion-content class="matched-tab" text-center *ngIf="toggle==2 && placebets==false"> 
             <!-- Loop for each lay betslip-->
             <div *ngFor = "let laybetslip of betslip.laybetsliparray" style="padding-bottom: 5px">
                 <!-- loop for each bet in each betslip-->

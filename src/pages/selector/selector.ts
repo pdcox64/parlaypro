@@ -65,6 +65,7 @@ export class SelectorPage {
         laybetlist.market2 = bets.market2;
         laybetlist.sport = bets.sport;
         laybetlist.winner = bets.winner;
+        laybetlist.overunder = bets.overunder;
          this.matchedbackbets.BackBetListArray.push(laybetlist);
       }
   }
@@ -81,6 +82,7 @@ export class SelectorPage {
          backbetlist.market2 = bets.market2;
          backbetlist.sport = bets.sport;
          backbetlist.winner = bets.winner;
+         backbetlist.overunder = bets.overunder;
          this.matchedlaybets.LayBetListArray.push(backbetlist);
       }
   }

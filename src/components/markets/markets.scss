@@ -1,7 +1,7 @@
 markets {
    
     .markets-h2{
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 500;
         letter-spacing: 0.7px;
         margin-top: 15px !important;
@@ -10,10 +10,6 @@ markets {
         padding-bottom: 0;
         text-transform: uppercase;
         
-    }
-
-    .menu-item .item{
-        // padding-left: 20px;
     }
 
     #smallicon{
@@ -43,7 +39,7 @@ markets {
     .sportlistoff{
         background-color: #1E1E1E;
         color: white;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 500; 
         font-family: 'Roboto';
         padding-left: 20px;
@@ -54,14 +50,13 @@ markets {
 
     .sportliston{
         color:#FFBC1D;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 500; 
         font-family:'Roboto';
         padding-left: 20px;
         margin-left: 0px;
         cursor:pointer;
         transition: background-color 0.2s ease;
-
     }
     
     .sportlistoff:hover {
@@ -103,6 +98,7 @@ markets {
     .market-label {
         display: block;
         margin-top: 10px;
+        text-decoration: underline;
     }
     
     .marketdate{

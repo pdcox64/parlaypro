@@ -15,17 +15,17 @@ export class BetslipComponent {
   toggle: number = 1;
   placebets: boolean = true;
   totalbetamount: string;
-  transactionfee: number = 0.00012;
+  transactionfee: string;
   thisbetamount: string;
   
   constructor(public events: Events, public storage: Storage) {
 
         // load saved betslips
-        // more comments
       this.getstoreddata();
 
-      this.totalbetamount = "";
-      this.transactionfee = 0.00012;
+      this.thisbetamount = "0.00000";
+      this.transactionfee = "0.00012";
+      this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
 
       events.subscribe('bets', (bets, type, thisbet) => {
        
@@ -39,8 +39,25 @@ export class BetslipComponent {
           // update the totals
           this.thisbetamount = this.calculateTotalBet(this.betslip).toFixed(5).toString();
           this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
-          
       });
+    }
+
+    cancelAllBets(){
+
+    }
+
+    placeBets(){
+      // Go through all unopen bets and mark as open
+      for(let laybet of this.betslip.laybetsliparray)
+      { // laybets
+          if(laybet.open){
+              laybet.open = false;}
+      }
+      for(let backbet of this.betslip.backbetsliparray)
+      { // backbets
+          if(backbet.open){
+              backbet.open = false;}
+      }
     }
 
     calculateTotalLayBetLiability(thisbetslip: BetSlip): number{

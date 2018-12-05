@@ -98,10 +98,10 @@
                   <div> 
                       <ion-grid style="width: 100%; padding: 0px; border-width: 0px"> 
                           <ion-row class="betsize">
-                                  <ion-col class="backbetall" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,0)" ><div>{{thisbackbets.odds}}</div><div class="smalltext">{{thisbackbets.stake}}</div></div></ion-col>
-                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,1)" ><div>{{calculatestake(thisbackbets.odds,1,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,1,2)}}</div></div></ion-col>
-                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,2)" ><div>{{calculatestake(thisbackbets.odds,2,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,2,2)}}</div></div></ion-col>
-                                  <ion-col  class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,3)" ><div>{{calculatestake(thisbackbets.odds,3,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,3,2)}}</div></div></ion-col>     
+                                  <ion-col class="backbetall" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,thisbackbets.odds,thisbackbets.stake)" ><div>{{thisbackbets.odds}}</div><div class="smalltext">{{thisbackbets.stake}}</div></div></ion-col>
+                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,calculatestake(thisbackbets.odds,1,2),calculatestake(thisbackbets.stake,1,5))" ><div>{{calculatestake(thisbackbets.odds,1,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,1,5)}}</div></div></ion-col>
+                                  <ion-col class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,calculatestake(thisbackbets.odds,2,2),calculatestake(thisbackbets.stake,2,5))" ><div>{{calculatestake(thisbackbets.odds,2,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,2,5)}}</div></div></ion-col>
+                                  <ion-col  class="backbet" col-3><div class="backbethover" (click)="closeBackBetPage(thisbackbets,calculatestake(thisbackbets.odds,3,2),calculatestake(thisbackbets.stake,3,5))" ><div>{{calculatestake(thisbackbets.odds,3,2)}}</div><div class="smalltext">{{calculatestake(thisbackbets.stake,3,5)}}</div></div></ion-col>     
                           </ion-row>
                       </ion-grid>
                       <br/>

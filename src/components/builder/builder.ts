@@ -82,13 +82,14 @@ export class BuilderComponent {
                 this.betlist.market1 = laybetslipfound.market1;
                 this.betlist.market2 = laybetslipfound.market2;
                 this.betlist.winner = laybetslipfound.winner;
+                this.betlist.overunder = laybetslipfound.overunder;
                 this.backbetcounter++;
                 this.backbets.BackBetListArray.push(this.betlist);
           }
           this.backodds = bet;
           this.backstake = stake;   
           this.backbets.matched = true;
-          this.backbets.open=false;
+          this.backbets.open=true;
       });
 
       events.subscribe('matchedbackbets', (matchedbets: LayBets, bet: string, stake: string) => {
@@ -104,6 +105,7 @@ export class BuilderComponent {
                 this.betlist.market1 = backbetslipfound.market1;
                 this.betlist.market2 = backbetslipfound.market2;
                 this.betlist.winner = backbetslipfound.winner;
+                this.betlist.overunder=backbetslipfound.overunder;
                   // add back bet
                   this.laybetcounter++;
                   this.laybets.LayBetListArray.push(this.betlist);
@@ -111,7 +113,7 @@ export class BuilderComponent {
           this.layodds = bet;
           this.laystake = stake;
           this.laybets.matched = true;
-          this.laybets.open = false;
+          this.laybets.open = true;
       });
       
 

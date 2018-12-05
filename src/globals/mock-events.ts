@@ -203,7 +203,7 @@ export const MARKETS: Markets[] = [
     
     
     // MLB National League
-    {id: 66, market1: 'Mailwaukee Brewers', market2: 'Arizona Diamondbacks', event: 10, date: 12 },
+    {id: 66, market1: 'Milwaukee Brewers', market2: 'Arizona Diamondbacks', event: 10, date: 12 },
     {id: 67, market1: 'New York Mets', market2: 'Atlanta Braves', event: 10, date: 12 },
     {id: 68, market1: 'Philadelphia Phillies', market2: 'Chicago Cubs', event: 10, date: 12 },
     {id: 69, market1: 'Pittsburgh Pirates', market2: 'Cincinnati reds', event: 10, date: 12 },
