@@ -46,6 +46,18 @@ betslip {
         background-color: #cc9617;
     }
 
+    .emptybutton {
+        background-color: #1E1E1E;
+        border: 1px solid #FFBC1D;
+        color: #FFFFFF;
+    }
+
+    .emptybutton:hover {
+        background-color: #1E1E1E;
+        border: 1px solid #cc9617;
+        color: #f5f5f5;
+    }
+
     .tabselected{
         border-bottom: 2px solid #ffffff;
         color: #FFBC1D;
