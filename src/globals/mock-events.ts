@@ -24,6 +24,7 @@ export class BetList{
 }
 
 export class LayBets{
+    id: string;
     LayBetListArray: BetList[] = new Array();
     stake: string;
     odds: string;
@@ -36,6 +37,7 @@ export class LayBets{
 }
 
 export class BackBets{
+    id: string;
     BackBetListArray: BetList[] = new Array();
     stake: string;
     odds: string;

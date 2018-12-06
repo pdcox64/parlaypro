@@ -18,7 +18,8 @@
 
 <!-- Lay bets to back-->
     <ion-content *ngIf="bettype==1 && nomatches == false" class="backbet-content" padding>
-      <div *ngFor="let thislaybets of betslip.laybetsliparray">   
+      <div *ngFor="let thislaybets of betslip.laybetsliparray">  
+       
           <ion-item *ngFor="let laybet of thislaybets.LayBetListArray" [ngClass]="laybet.style">
              
               <ion-icon item-start name="{{laybet.icon}}" ></ion-icon>
@@ -39,6 +40,7 @@
                 </ion-grid>
                 <br/>
             </div>
+    
         </div>
     </ion-content>
 

@@ -6,11 +6,13 @@ import { Markets } from '../../globals/globals';
 import { SelectorPage } from '../../pages/selector/selector';
 import { PopularPage } from '../../pages/popular/popular';
 import { Storage } from '@ionic/storage';
+import { TestData} from '../../globals/test-data';
 
 @Component({
   selector: 'builder',
   templateUrl: 'builder.html'
 })
+
 
 export class BuilderComponent {
   
@@ -42,12 +44,13 @@ export class BuilderComponent {
   processedbetslips = new BetSlip;
   betslip = new BetSlip;
   matchedbackbets = new BackBets;
+  searchbetslip = new BetSlip;
 
   balance: number;
   
   constructor(public events: Events, public modalCtrl: ModalController, 
               public navCtrl: NavController, public navParams: NavParams,
-              public storage: Storage) {
+              public storage: Storage, public testdata: TestData) {
    
     // set defaults
     this.exactbackmatch = true;
@@ -55,8 +58,8 @@ export class BuilderComponent {
     this.matchedbets = new BetSlip;
     this.errormessage = "";
     
-     // load existing data
-     this.loadbetdata();
+     // load test data
+     this.searchbetslip = testdata.betslip;
 
      setInterval(() => {
       this.errormessage = "none";
@@ -67,6 +70,11 @@ export class BuilderComponent {
     events.subscribe('balance', (balance: string) => {
         // convert to number
       this.balance = Number(balance);
+    });
+
+    events.subscribe('message', (message: string, type: string) => {
+      // look for incoming messages
+        this.messageBar(type, message);
     });
 
     events.subscribe('matchedlaybets', (matchedbets: BackBets, bet: string, stake: string) => {
@@ -135,6 +143,7 @@ export class BuilderComponent {
           this.laybets.processed = false;  
           this.laybets.open = true;
           this.laybets.LayBetListArray.push(this.betlist);
+       
       }
       else{
           // add back bet
@@ -191,6 +200,13 @@ export class BuilderComponent {
         }
     }
 
+   newGuid() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+          return v.toString(16);
+      });
+  }
+
     addBet(){
 
       if(this.toggle==1){ //lay bets
@@ -209,6 +225,7 @@ export class BuilderComponent {
         // calculate liability
           this.updateLiability();
           this.laybetcounter=0;
+          this.laybets.id= this.newGuid();
           this.laybets.processed = true;
           this.laybets.open = true;
           this.laybets.liability = this.layliability;
@@ -291,18 +308,26 @@ export class BuilderComponent {
       var laybetslippartial: number =0;
       var laybetslipexact: number =0;
 
+      // search only on test data
+
+
       // loop through each lay bet slip
-      for(let betslip of this.betslip.laybetsliparray)
+      for(let betslip of this.searchbetslip.laybetsliparray)
       {
+        
           // if number of lay bets and search bets don't match then an exact match can never be found
           if((this.backbets.BackBetListArray.length != betslip.LayBetListArray.length) && this.exactbackmatch==true){
             this.matchedbets = new BetSlip;
+        
             }
           else{
-          // loop through each bet on a lay betslip
+          // loop through each bet on an open lay betslip
           laybetmatches = this.backbets.BackBetListArray.length;
+          laybetslippartial =0;
+          laybetslipexact = 0;
           for(let laybet of betslip.LayBetListArray)
           {
+            matchcounter=0;
               // compare each lay bet with each search bet
               for(let searchbet of this.backbets.BackBetListArray)
               {
@@ -355,7 +380,7 @@ export class BuilderComponent {
                     this.matchedbets = new BetSlip;
                   }
                 }
-          }
+            }
         }
           // display popup selector
           this.displayselector(1);
@@ -371,7 +396,7 @@ export class BuilderComponent {
         var backbetslipexact: number =0;
       
         // loop through each back bet slip
-        for(let betslip of this.betslip.backbetsliparray)
+        for(let betslip of this.searchbetslip.backbetsliparray)
         { 
            // if number of lay bets and search bets don't match then an exact match can never be found
            if((this.laybets.LayBetListArray.length != betslip.BackBetListArray.length) && this.exactlaymatch==true){
@@ -380,11 +405,16 @@ export class BuilderComponent {
           else{
             // loop through each bet on a back betslip
             backbetmatches = betslip.BackBetListArray.length;
+            backbetslippartial =0;
+            backbetslipexact = 0;
             for(let backbet of betslip.BackBetListArray)
             {
-                // compare each lay bet with each search bet
+              matchcounter = 0;
+            
+              // compare each lay bet with each search bet
                 for(let searchbet of this.laybets.LayBetListArray)
                 {
+                  
                     betcounter= 0;
                     // check each bet on each betslip
                     if(backbet.date == searchbet.date){betcounter++;};
@@ -421,7 +451,9 @@ export class BuilderComponent {
                   else if(backbetslippartial>0){
                         // save this betslip but only if partial bets are allowed.
                         if(this.exactlaymatch == false){
-                            this.savematchedbackbetslip(betslip);}
+                            this.savematchedbackbetslip(betslip);
+                            alert('here');
+                          }
                         else {
                         }
                     }
@@ -439,6 +471,7 @@ export class BuilderComponent {
       savematchedbackbetslip(backbet: BackBets){
         // add the lay betslip
         this.matchedbets.backbetsliparray.push(backbet);
+       
     }
 
       displayselector(type: number){

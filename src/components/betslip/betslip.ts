@@ -17,12 +17,13 @@ export class BetslipComponent {
   totalbetamount: string;
   transactionfee: string;
   thisbetamount: string;
+  betcounter: number;
   
   constructor(public events: Events, public storage: Storage) {
 
         // load saved betslips
-      this.getstoreddata();
-
+      //this.getstoreddata();
+      this.betcounter=0;
       this.thisbetamount = "0.00000";
       this.transactionfee = "0.00012";
       this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
@@ -39,11 +40,59 @@ export class BetslipComponent {
           // update the totals
           this.thisbetamount = this.calculateTotalBet(this.betslip).toFixed(5).toString();
           this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
+          this.betcounter++;
       });
     }
 
-    cancelAllBets(){
+    sendMessage(text: string, type: string){
 
+    }
+
+    cancelAllBets(){
+        // remove all placed bets
+        for(let laybet of this.betslip.laybetsliparray)
+        {
+            for(let laybet of this.betslip.laybetsliparray)
+            { // laybets
+                if(laybet.open)
+                {
+                  let index: number = this.betslip.laybetsliparray.indexOf(laybet);
+                  this.betslip.laybetsliparray.splice(index,1);
+                }
+            }
+        }
+        for(let backbet of this.betslip.backbetsliparray)
+        {
+            for(let backbet of this.betslip.backbetsliparray)
+            { // backbets
+                if(backbet.open)
+                {
+                  let index: number = this.betslip.backbetsliparray.indexOf(backbet);
+                  this.betslip.backbetsliparray.splice(index,1);
+                }
+            }
+        }
+        this.betcounter=0;
+        // send message
+        this.events.publish('message','All bets have been successfully cancelled', 'success');
+    }
+
+    cancelLayBet(laybet: LayBets){
+      // remove selected lay betslip
+      let index: number = this.betslip.laybetsliparray.indexOf(laybet);
+      this.betslip.laybetsliparray.splice(index,1);
+      this.betcounter--;
+      // send message
+      this.events.publish('message','Bet has been successfully cancelled', 'success');
+    }
+
+    cancelBackBet(backbet: BackBets){
+      // remove selected back betslip
+      let index: number = this.betslip.backbetsliparray.indexOf(backbet);
+      this.betslip.backbetsliparray.splice(index,1);
+      this.betcounter--;
+      // send message
+      this.events.publish('message','Bet has been successfully cancelled', 'success');
     }
 
     placeBets(){
@@ -58,6 +107,7 @@ export class BetslipComponent {
           if(backbet.open){
               backbet.open = false;}
       }
+      this.events.publish('message','All bets have been successfully placed', 'success');
     }
 
     calculateTotalLayBetLiability(thisbetslip: BetSlip): number{

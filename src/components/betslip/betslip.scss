@@ -38,7 +38,6 @@ betslip {
         font-family:'Roboto';
         font-size: 20px;  
         padding: 0px;  
-       
     }
 
     .betslipbutton:hover{
@@ -111,12 +110,12 @@ betslip {
     }
 
     .placedbets-tab{
-        background-color: #1D1D1D;
-        height: 500px;
+        background-color: #333333;
+        height: 550px;
     }
 
     .openbets-tab {
-        background-color: #333333;
+        background-color: #1D1D1D;
         height: 50px;
     }
 
@@ -148,7 +147,7 @@ betslip {
     .notestyle{
         width:80%;
         text-align:center; 
-        background-color: rgb(243, 243, 170);
+        background-color: rgb(243, 243, 179);
         border-radius: 8px;
         padding-top: 15px;
         padding-left: 5px;
@@ -211,6 +210,7 @@ betslip {
 
     .back-stake-title{
         background-color:color($colors,dark_blue);
+        color: whitesmoke;
         font-family: 'Roboto';
         font-weight: bold;
         padding:0;
@@ -239,4 +239,8 @@ betslip {
           font-weight: 600;
           text-align: left;
       }
+
+      #smallicon{
+        font-size: 20px;
+    }
 }
