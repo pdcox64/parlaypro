@@ -280,6 +280,7 @@ export class BuilderComponent {
          // look for bet id
          this.backbetcounter--;
          let index: number = this.backbets.BackBetListArray.indexOf(bet);
+         
          this.backbets.BackBetListArray.splice(index,1);
       }
       else { // back bets
@@ -310,15 +311,12 @@ export class BuilderComponent {
 
       // search only on test data
 
-
       // loop through each lay bet slip
       for(let betslip of this.searchbetslip.laybetsliparray)
       {
-        
           // if number of lay bets and search bets don't match then an exact match can never be found
           if((this.backbets.BackBetListArray.length != betslip.LayBetListArray.length) && this.exactbackmatch==true){
             this.matchedbets = new BetSlip;
-        
             }
           else{
           // loop through each bet on an open lay betslip
@@ -452,7 +450,6 @@ export class BuilderComponent {
                         // save this betslip but only if partial bets are allowed.
                         if(this.exactlaymatch == false){
                             this.savematchedbackbetslip(betslip);
-                            alert('here');
                           }
                         else {
                         }

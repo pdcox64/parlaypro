@@ -41,11 +41,11 @@
                                                     </div>
                                                 </div>
                                                 <!-- Over/Under-->
-                                                <div *ngIf="market.id==marketId" class="market-label">  
+                                                <div *ngIf="market.id==marketId && sport.overunder.type !='None'" class="market-label">  
                                                     <label class="overunder">OVER/UNDER</label>
                                                 </div>
                                                 <div *ngFor="let range of sport.overunder.range"> 
-                                                    <div *ngIf="market.id==marketId">                           
+                                                    <div *ngIf="market.id==marketId && sport.overunder.type !='None'">                           
                                                         <ion-label [class]= "thisoverunder==range ? 'overunderon' : 'overunderoff'" (click)="setoverunder(range)">
                                                             <ion-icon class="overundericon" [color]="thisoverunder==range ? 'orange' : 'white'" name="arrow-dropright" ></ion-icon> 
                                                             OVER/UNDER {{range}} {{sport.overunder.type}}

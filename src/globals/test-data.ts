@@ -19,9 +19,9 @@ export class TestData{
         var laybets = new LayBets;
     
         // Mixed Sport
-        laybets.LayBetListArray.push({id: 0, market1: 'Manchester United',market2:'Chelsea', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Sunday December 8, 2018', winner:'Chelsea', style:'', partial:false, overunder:''});
-        laybets.LayBetListArray.push({id: 0, market1: 'Tottenham Hotspur',market2:'Leicester City', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Sunday December 8, 2018', winner:'Leicester City', style:'', partial:false, overunder:''});
-        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'Chicago White Sox', icon:'baseball', sport: 'Baseball',event: 'MLB', date: 'Wednesday December 11, 2018', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Manchester United',market2:'Chelsea', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Friday October 26, 2018', winner:'Chelsea', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Tottenham Hotspur',market2:'Leicester City', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Friday October 26, 2018', winner:'Leicester City', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
         laybets.LayBetListArray.push({id: 0, market1: 'Baltimore Ravens',market2:'Houston Texans', icon:'american-football', sport: 'Football',event: 'NFL', date: 'Saturday December 6, 2018', winner:'Houston Texans', style:'', partial:false, overunder:''});
         laybets.stake = "0.0030";
         laybets.odds = "16.00";
@@ -183,16 +183,44 @@ export class TestData{
       
         // baseball
         laybets = new LayBets;
-        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'Chicago White Sox', icon:'baseball', sport: 'Baseball',event: 'MLB', date: 'Wednesday December 11, 2018', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
-        laybets.LayBetListArray.push({id: 0, market1: 'Boston Red Sox',market2:'Texas Rangers', icon:'baseball', sport: 'Baseball',event: 'MLB', date: 'Wednesday December 11, 2018', winner:'Boston Red Sox', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Chicago White Sox',market2:'Boston Red Sox', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Boston Red Sox', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Tampa Bay Rays',market2:'Baltimore Orioles', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Tampa Bay Rays', style:'', partial:false, overunder:''});
         laybets.stake = "0.00123";
-        laybets.odds = "2.20";
+        laybets.odds = "6.20";
         laybets.liability = "1000";
         laybets.processed = true;
         laybets.user=1;
         laybets.matched=true;
         laybets.sport = 3;
         this.betslip.laybetsliparray.push(laybets); 
+
+        laybets = new LayBets;
+        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Tampa Bay Rays',market2:'Baltimore Orioles', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Tampa Bay Rays', style:'', partial:false, overunder:''});
+        laybets.stake = "0.00923";
+        laybets.odds = "2.00";
+        laybets.liability = "1000";
+        laybets.processed = true;
+        laybets.user=1;
+        laybets.matched=true;
+        laybets.sport = 3;
+        this.betslip.laybetsliparray.push(laybets); 
+
+        laybets = new LayBets;
+        laybets.LayBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Oakland Athletics',market2:'Kansas City Royals', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Kansas City Royals', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Tampa Bay Rays',market2:'Baltimore Orioles', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Tampa Bay Rays', style:'', partial:false, overunder:''});
+        laybets.LayBetListArray.push({id: 0, market1: 'Chicago White Sox',market2:'Boston Red Sox', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Boston Red Sox', style:'', partial:false, overunder:''});
+        laybets.stake = "0.07623";
+        laybets.odds = "10.00";
+        laybets.liability = "1000";
+        laybets.processed = true;
+        laybets.user=1;
+        laybets.matched=true;
+        laybets.sport = 3;
+        this.betslip.laybetsliparray.push(laybets); 
+
     
        // Basketball
         laybets = new LayBets;
@@ -281,6 +309,33 @@ export class TestData{
         backbets.matched=true;
         backbets.sport=1;
         this.betslip.backbetsliparray.push(backbets);
+
+      // MLB - American League
+        backbets = new BackBets;
+        backbets.BackBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        backbets.BackBetListArray.push({id: 0, market1: 'Tampa Bay Rays',market2:'Baltimore Orioles', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Tampa Bay Rays', style:'', partial:false, overunder:''});
+        backbets.stake = "0.00923";
+        backbets.odds = "2.00";
+        backbets.profit = "1000";
+        backbets.processed = true;
+        backbets.user=1;
+        backbets.matched=true;
+        backbets.sport = 3;
+        this.betslip.backbetsliparray.push(backbets); 
+
+        backbets = new BackBets;
+        backbets.BackBetListArray.push({id: 0, market1: 'Toronto Blue Jays',market2:'New York Yankees', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Toronto Blue Jays', style:'', partial:false, overunder:''});
+        backbets.BackBetListArray.push({id: 0, market1: 'Oakland Athletics',market2:'Kansas City Royals', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Kansas City Royals', style:'', partial:false, overunder:''});
+        backbets.BackBetListArray.push({id: 0, market1: 'Tampa Bay Rays',market2:'Baltimore Orioles', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Tampa Bay Rays', style:'', partial:false, overunder:''});
+        backbets.BackBetListArray.push({id: 0, market1: 'Chicago White Sox',market2:'Boston Red Sox', icon:'baseball', sport: 'Baseball',event: 'MLB - American League', date: 'Wednesday March 30, 2019', winner:'Boston Red Sox', style:'', partial:false, overunder:''});
+        backbets.stake = "0.07623";
+        backbets.odds = "10.00";
+        backbets.profit = "1000";
+        backbets.processed = true;
+        backbets.user=1;
+        backbets.matched=true;
+        backbets.sport = 3;
+        this.betslip.backbetsliparray.push(backbets); 
     
       }
 

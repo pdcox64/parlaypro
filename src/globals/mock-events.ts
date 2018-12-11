@@ -75,10 +75,10 @@ export const BETWIN: BetWin[] = [
 
 
 export const OVER_UNDER: OverUnder[] = [
-    {id: 1, range: ['1.5','6.5','11.5','16.5','21.5'], type:'Points'},
+    {id: 1, range: ['20.5','26.5','31.5','36.5','41.5'], type:'Points'},
     {id: 2, range: ['0'], type:'None'},
-    {id: 3, range: ['0.5','2.5','4.5','6.5','8.5'], type:'Runs'},
-    {id: 4, range: ['5.5','10.5','15.5','20.5','25.5'], type:'Points'},
+    {id: 3, range: ['5.5','10.5','15.5','20.5','25.5'], type:'Runs'},
+    {id: 4, range: ['180.5','190.5','200.5','210.5','220.5'], type:'Points'},
     {id: 5, range: ['0.5','1.5','2.5','3.5','4.5', '5.5', '6.5'], type:'Goals'},
 ];
 

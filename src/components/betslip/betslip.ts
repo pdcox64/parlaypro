@@ -50,17 +50,19 @@ export class BetslipComponent {
 
     cancelAllBets(){
         // remove all placed bets
-        for(let laybet of this.betslip.laybetsliparray)
-        {
+       
             for(let laybet of this.betslip.laybetsliparray)
             { // laybets
-                if(laybet.open)
+                if(laybet.open == true)
                 {
                   let index: number = this.betslip.laybetsliparray.indexOf(laybet);
                   this.betslip.laybetsliparray.splice(index,1);
+                  this.events.publish('liability', (Number(laybet.liability) * -1).toFixed(5).toString()) ;
+                  this.betcounter--;
                 }
+               
             }
-        }
+        
         for(let backbet of this.betslip.backbetsliparray)
         {
             for(let backbet of this.betslip.backbetsliparray)
@@ -69,10 +71,13 @@ export class BetslipComponent {
                 {
                   let index: number = this.betslip.backbetsliparray.indexOf(backbet);
                   this.betslip.backbetsliparray.splice(index,1);
+                  this.events.publish('profit', (Number(backbet.profit) * -1).toFixed(5).toString()) ;
+                  this.betcounter--;
                 }
             }
         }
-        this.betcounter=0;
+       
+       
         // send message
         this.events.publish('message','All bets have been successfully cancelled', 'success');
     }
