@@ -99,16 +99,14 @@ betslip {
         font-size: 14px;
     }
 
+     .matched-tab{
+        background-color: #1D1D1D;
+        height: 680px;
+    }
     .unmatched-tab{
-        background-color: #333333; 
+        background-color: #1D1D1D;
         height: 680px;
     }
-
-    .matched-tab{
-        background-color: #333333; 
-        height: 680px;
-    }
-
     .placedbets-tab{
         background-color: #333333;
         height: 550px;

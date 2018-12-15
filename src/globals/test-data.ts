@@ -30,7 +30,7 @@ export class TestData{
         laybets.user=1;
         laybets.matched=true;
         laybets.sport = 0;
-        this.betslip.laybetsliparray.push(laybets);  
+        this.betslip.laybetsliparray.push(laybets);
         
     
         laybets = new LayBets;

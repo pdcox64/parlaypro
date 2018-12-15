@@ -112,6 +112,10 @@ export class BetslipComponent {
           if(backbet.open){
               backbet.open = false;}
       }
+      // reset totals
+      this.betcounter=0;
+      this.thisbetamount = "0.00000";
+      this.totalbetamount = "0.00000";
       this.events.publish('message','All bets have been successfully placed', 'success');
     }
 

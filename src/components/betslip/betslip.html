@@ -18,7 +18,7 @@
         <!-- Loop for each lay betslip-->
         <div *ngFor = "let laybetslip of betslip.laybetsliparray" style="padding-bottom: 5px">
             <!-- loop for each bet in each betslip-->
-            <div *ngIf = "laybetslip.open==true && toggle==1">
+            <div *ngIf = "laybetslip.open==true">
                 <div> <ion-icon class="logo lay-paperclip" name="attach"></ion-icon></div>
                 <div class="notestyle noterotate" >
                     <div><ion-icon id="smallicon" name="trash" style="cursor: pointer; padding-left: 90%" (click)="cancelLayBet(laybetslip)"></ion-icon></div>
@@ -122,7 +122,6 @@
         </ion-row>
     </ion-grid>
 </div>
-
 
   <!--Unmatched Bets-->
   <ion-content class="unmatched-tab" text-center *ngIf="toggle==1 && placebets==false"> 

@@ -53,8 +53,8 @@ export class BuilderComponent {
               public storage: Storage, public testdata: TestData) {
    
     // set defaults
-    this.exactbackmatch = true;
-    this.exactlaymatch = true;
+    this.exactbackmatch = false;
+    this.exactlaymatch = false;
     this.matchedbets = new BetSlip;
     this.errormessage = "";
     
@@ -143,7 +143,6 @@ export class BuilderComponent {
           this.laybets.processed = false;  
           this.laybets.open = true;
           this.laybets.LayBetListArray.push(this.betlist);
-       
       }
       else{
           // add back bet
@@ -208,20 +207,17 @@ export class BuilderComponent {
   }
 
     addBet(){
-
       if(this.toggle==1){ //lay bets
         // check for errors first
         if(Number(this.laystake) == 0){
             this.messageBar("error", "Stake cannot be zero.");
             return;
         }
-
         if(this.balance - Number(this.layliability) < 0)
         {
           this.messageBar("error", "Insufficient funds.");
             return;
         }
-
         // calculate liability
           this.updateLiability();
           this.laybetcounter=0;
@@ -248,7 +244,6 @@ export class BuilderComponent {
           this.messageBar("error", "Stake cannot be zero.");
           return;
       }
-
         this.backbetcounter=0;
         this.backbets.processed = true;
         this.backbets.open=true;
@@ -280,7 +275,7 @@ export class BuilderComponent {
          // look for bet id
          this.backbetcounter--;
          let index: number = this.backbets.BackBetListArray.indexOf(bet);
-         
+
          this.backbets.BackBetListArray.splice(index,1);
       }
       else { // back bets
@@ -309,76 +304,75 @@ export class BuilderComponent {
       var laybetslippartial: number =0;
       var laybetslipexact: number =0;
 
-      // search only on test data
+      // clear old search first
+      this.matchedbets=new BetSlip;
 
       // loop through each lay bet slip
       for(let betslip of this.searchbetslip.laybetsliparray)
       {
           // if number of lay bets and search bets don't match then an exact match can never be found
-          if((this.backbets.BackBetListArray.length != betslip.LayBetListArray.length) && this.exactbackmatch==true){
-            this.matchedbets = new BetSlip;
-            }
-          else{
-          // loop through each bet on an open lay betslip
-          laybetmatches = this.backbets.BackBetListArray.length;
-          laybetslippartial =0;
-          laybetslipexact = 0;
-          for(let laybet of betslip.LayBetListArray)
+          if((this.backbets.BackBetListArray.length != betslip.LayBetListArray.length) && this.exactbackmatch==true) {}
+          else
           {
-            matchcounter=0;
-              // compare each lay bet with each search bet
-              for(let searchbet of this.backbets.BackBetListArray)
-              {
-                  betcounter= 0;
-                  // check each bet on each betslip
-                  if(laybet.date == searchbet.date){betcounter++;};
-                  if(laybet.sport == searchbet.sport){betcounter++;};
-                  if(laybet.market1 == searchbet.market1){betcounter++;};
-                  if(laybet.market2 == searchbet.market2){betcounter++;};
-                  if(laybet.event == searchbet.event){betcounter++;};
-                  if(laybet.winner == searchbet.winner){betcounter++;};
-                  if(betcounter == 6)
-                  { // found a field match
-                    matchcounter++;
-                    laybet.style="exact-laymatch";
-                    laybet.partial=false;
-                  }
-                  else{
-                    if(laybet.style != "exact-laymatch"){
+            // loop through each bet on an open lay betslip
+            laybetmatches = this.backbets.BackBetListArray.length;
+            laybetslippartial =0;
+            laybetslipexact = 0;
+            for(let laybet of betslip.LayBetListArray)
+            {
+              matchcounter=0;
+                // compare each lay bet with each search bet
+                for(let searchbet of this.backbets.BackBetListArray)
+                {
+                    betcounter= 0;
+                    // check each bet on each betslip
+                    if(laybet.date == searchbet.date){betcounter++;};
+                    if(laybet.sport == searchbet.sport){betcounter++;};
+                    if(laybet.market1 == searchbet.market1){betcounter++;};
+                    if(laybet.market2 == searchbet.market2){betcounter++;};
+                    if(laybet.event == searchbet.event){betcounter++;};
+                    if(laybet.winner == searchbet.winner){betcounter++;};
+                    if(betcounter == 6)
+                    { // found a field match
+                        matchcounter++;
+                        laybet.style="exact-laymatch";
+                        laybet.partial=false;
+                    }
+                    else
+                    {
                         laybet.style = "partial-match";
                         laybet.partial = true;
                     }
-                  }
-                 
-              }
-                if(matchcounter == laybetmatches){
+                }
+                if(matchcounter == laybetmatches)
+                {
                   // found a betslip exact match
                   laybetslipexact++;
-                  
                 }
                 else if(matchcounter >0){
                   // found a betslip partial match
-                 
                   laybetslippartial++;
                 }
+            } 
+            if(laybetslipexact>0)
+            {
+              // save this betslip
+              this.savematchedlaybetslip(betslip);
             }
-            
-              if(laybetslipexact>0){
-                // save this betslip
+            else if(laybetslippartial>0)
+            {
+              // save this betslip but only if partial bets are allowed.
+              if(this.exactbackmatch == false)
+              {
                 this.savematchedlaybetslip(betslip);
               }
-              else if(laybetslippartial>0){
-              // save this betslip but only if partial bets are allowed.
-                  if(this.exactbackmatch == false)
-                  {
-                    this.savematchedlaybetslip(betslip);
-                  }
-                  else {
-                    // clean uo
-                    this.matchedbets = new BetSlip;
-                  }
-                }
+              else 
+              {
+                // clean uo
+                this.matchedbets = new BetSlip;
+              }
             }
+          }
         }
           // display popup selector
           this.displayselector(1);
@@ -392,27 +386,25 @@ export class BuilderComponent {
         var matchcounter: number =0 ;
         var backbetslippartial: number =0;
         var backbetslipexact: number =0;
+
+        this.matchedbets  = new BetSlip;
       
         // loop through each back bet slip
         for(let betslip of this.searchbetslip.backbetsliparray)
         { 
            // if number of lay bets and search bets don't match then an exact match can never be found
-           if((this.laybets.LayBetListArray.length != betslip.BackBetListArray.length) && this.exactlaymatch==true){
-            this.matchedbets = new BetSlip;
-            }
+          if((this.laybets.LayBetListArray.length != betslip.BackBetListArray.length) && this.exactlaymatch==true){}
           else{
             // loop through each bet on a back betslip
             backbetmatches = betslip.BackBetListArray.length;
             backbetslippartial =0;
             backbetslipexact = 0;
+            matchcounter = 0;
             for(let backbet of betslip.BackBetListArray)
             {
-              matchcounter = 0;
-            
               // compare each lay bet with each search bet
                 for(let searchbet of this.laybets.LayBetListArray)
                 {
-                  
                     betcounter= 0;
                     // check each bet on each betslip
                     if(backbet.date == searchbet.date){betcounter++;};
@@ -443,9 +435,11 @@ export class BuilderComponent {
                     backbetslippartial++;
                     }
               }
-                if(backbetslipexact>0){
-                      // save this betslip
-                        this.savematchedbackbetslip(betslip);}
+                if(backbetslipexact>0)
+                {
+                    // save this betslip
+                    this.savematchedbackbetslip(betslip);
+                }
                   else if(backbetslippartial>0){
                         // save this betslip but only if partial bets are allowed.
                         if(this.exactlaymatch == false){
