@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Events } from 'ionic-angular';
 import { BackBets,LayBets, BetSlip } from '../../globals/mock-events';
 import { Storage } from '@ionic/storage';
+import { TestData} from '../../globals/test-data';
 
 @Component({
   selector: 'betslip',
@@ -19,10 +20,8 @@ export class BetslipComponent {
   thisbetamount: string;
   betcounter: number;
   
-  constructor(public events: Events, public storage: Storage) {
+  constructor(public events: Events, public storage: Storage, public testdata: TestData) {
 
-        // load saved betslips
-      //this.getstoreddata();
       this.betcounter=0;
       this.thisbetamount = "0.00000";
       this.transactionfee = "0.00012";
@@ -42,10 +41,40 @@ export class BetslipComponent {
           this.totalbetamount = (Number(this.thisbetamount) + Number(this.transactionfee)).toFixed(5).toString();
           this.betcounter++;
       });
+      console.log(testdata.betslip.laybetsliparray);
+
+      // add test data for matched bet
+      for(let laybet of testdata.betslip.laybetsliparray)
+            { // laybets
+              if(laybet.open==false){
+                this.betslip.laybetsliparray.push(laybet);
+              }  
+      } 
+      for(let backbet of testdata.betslip.backbetsliparray)
+            { // backbets
+              if(backbet.open==false){
+                this.betslip.backbetsliparray.push(backbet);
+              }  
+      } 
+  }
+
+    getStyle(won: string){
+      //console.log(won);
+      if(won=="true"){
+        return 'lay-matched-style-lost';}
+      else{
+        return 'matched-style';
+      }
     }
 
-    sendMessage(text: string, type: string){
 
+    getBackStyle(won: string){
+      //console.log(won);
+      if(won=="true"){
+        return 'back-matched-style-won';}
+      else{
+        return 'matched-style';
+      }
     }
 
     cancelAllBets(){
@@ -118,6 +147,71 @@ export class BetslipComponent {
       this.totalbetamount = "0.00000";
       this.events.publish('message','All bets have been successfully placed', 'success');
     }
+
+  makeCode(){
+    // temp code for making betslips
+   var mytext: string;
+
+    // Lay Bets
+    /*
+    for(let laybetslip of this.betslip.laybetsliparray)
+        {
+          mytext += 'laybets = new LayBets;\r'
+          for(let laybet of laybetslip.LayBetListArray){
+              mytext += "laybets.LayBetListArray.push({id:0, market1: \'" + laybet.market1 + "\'";
+              mytext += ", market2: \'" + laybet.market2 + "\'"; 
+              mytext += ", icon: \'" + laybet.icon + "\'";
+              mytext += ", sport: \'" + laybet.sport + "\'";
+              mytext += ", event: \'" + laybet.event + "\'";
+              mytext += ", date: \'" + laybet.date + "\'";
+              mytext += ", winner: \'" + laybet.winner + "\'";
+              mytext += ", style:\'\'";
+              mytext += ", partial:false";
+              if(laybet.overunder == 'undefined'){mytext += "\'\';"}
+              else{
+                mytext += ", overunder: \'" + laybet.overunder + "\'});";}
+              mytext+='\r';
+          }
+          mytext += "laybets.stake = \'" + laybetslip.stake + "\';\r"
+          mytext += "laybets.odds = \'" + laybetslip.odds + "\';\r"
+          mytext += "laybets.liability = \'" + laybetslip.liability + "\';\r"
+          mytext += "laybets.processed = true; \r";
+          mytext += "laybets.user=1; \r";
+          mytext += "laybets.matched=true; \r";
+          mytext += "laybets.sport = 4; \r";
+          mytext += "this.betslip.laybetsliparray.push(laybets);"; 
+        }
+        console.log(mytext);*/
+
+        // Back Bets
+        for(let backbetslip of this.betslip.backbetsliparray)
+        {
+          mytext += 'backbets = new BackBets;\r'
+          for(let backbet of backbetslip.BackBetListArray){
+              mytext += "backbets.BackBetListArray.push({id:0, market1: \'" + backbet.market1 + "\'";
+              mytext += ", market2: \'" + backbet.market2 + "\'"; 
+              mytext += ", icon: \'" + backbet.icon + "\'";
+              mytext += ", sport: \'" + backbet.sport + "\'";
+              mytext += ", event: \'" + backbet.event + "\'";
+              mytext += ", date: \'" + backbet.date + "\'";
+              mytext += ", winner: \'" + backbet.winner + "\'";
+              mytext += ", style:\'\'";
+              mytext += ", partial:false";
+              mytext += ", overunder: \'" + backbet.overunder + "\'";
+              mytext += ", won: \'" + backbet.won + "\'});";
+              mytext+='\r';
+          }
+          mytext += "backbets.stake = \'" + backbetslip.stake + "\';\r"
+          mytext += "backbets.odds = \'" + backbetslip.odds + "\';\r"
+          mytext += "backbets.profit = \'" + backbetslip.profit + "\';\r"
+          mytext += "backbets.processed = true; \r";
+          mytext += "backbets.user=1; \r";
+          mytext += "backbets.matched=true; \r";
+          mytext += "backbets.sport = 2; \r";
+          mytext += "this.betslip.backbetsliparray.push(backbets);"; 
+        }
+        console.log(mytext);
+  }
 
     calculateTotalLayBetLiability(thisbetslip: BetSlip): number{
         var total: number = 0;  

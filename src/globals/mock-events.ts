@@ -21,6 +21,7 @@ export class BetList{
     style: string;
     partial: boolean;
     overunder: string;
+    won: string;
 }
 
 export class LayBets{

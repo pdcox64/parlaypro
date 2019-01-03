@@ -91,6 +91,9 @@ export class BuilderComponent {
                 this.betlist.market2 = laybetslipfound.market2;
                 this.betlist.winner = laybetslipfound.winner;
                 this.betlist.overunder = laybetslipfound.overunder;
+                this.betlist.partial = laybetslipfound.partial;
+                this.betlist.won = laybetslipfound.won;
+                this.betlist.style = laybetslipfound.style;
                 this.backbetcounter++;
                 this.backbets.BackBetListArray.push(this.betlist);
           }
@@ -114,6 +117,10 @@ export class BuilderComponent {
                 this.betlist.market2 = backbetslipfound.market2;
                 this.betlist.winner = backbetslipfound.winner;
                 this.betlist.overunder=backbetslipfound.overunder;
+                this.betlist.partial=backbetslipfound.partial;
+                this.betlist.won=backbetslipfound.won;
+                this.betlist.style=backbetslipfound.style;
+
                   // add back bet
                   this.laybetcounter++;
                   this.laybets.LayBetListArray.push(this.betlist);
@@ -476,51 +483,6 @@ export class BuilderComponent {
         let popularmodal = this.modalCtrl.create(PopularPage, {type: type} , {cssClass: "modal-popular"});
         popularmodal.present();
       }
-
-      loadbetdata(){
-          // add some test data
-          var laybets = new LayBets;
-          laybets.LayBetListArray.push({id: 0, market1: 'Chelsea',market2:'Fulham', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'Chelsea', style:'', partial:false, overunder:''});
-          laybets.LayBetListArray.push({id: 0, market1: 'Manchester City',market2:'Norwich', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'Norwich', style:'', partial:false , overunder:''});
-          laybets.stake = "0.0030";
-          laybets.odds = "3.55";
-          laybets.liability = "1000";
-          laybets.processed = true;
-          laybets.open = false;
-          laybets.user=1;
-          laybets.matched=true;
-          this.betslip.laybetsliparray.push(laybets); 
-
-          laybets = new LayBets;
-          laybets.LayBetListArray.push({id: 0, market1: 'Arsenal',market2:'Newcastle United', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'Arsenal', style:'', partial:false, overunder:'' });
-          laybets.LayBetListArray.push({id: 0, market1: 'West Ham',market2:'Burnley', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'West Ham', style:'', partial:false, overunder:'' });
-          laybets.stake = "0.00123";
-          laybets.odds = "2.20";
-          laybets.liability = "1000";
-          laybets.processed = true;
-          laybets.open = false;
-          laybets.user=1;
-          laybets.matched=true;
-          this.betslip.laybetsliparray.push(laybets); 
-
-          var backbets = new BackBets;
-          backbets.BackBetListArray.push({id: 0, market1: 'Arsenal',market2:'Newcastle United', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'Arsenal', style:'', partial:false , overunder:''});
-          backbets.BackBetListArray.push({id: 0, market1: 'West Ham',market2:'Burnley', icon:'football', sport: 'Soccer',event: 'English Premier League', date: 'Wednesday December 4, 2018', winner:'West Ham', style:'', partial:false , overunder:''});
-          backbets.stake = "0.010";
-          backbets.odds = "4.01";
-          backbets.profit = "1000";
-          backbets.processed = true;
-          backbets.open = false;
-          backbets.user=1;
-          backbets.matched=true;
-          this.betslip.backbetsliparray.push(backbets);
-
-          // save to storage
-          this.storage.set('laybetslips',this.betslip.laybetsliparray);
-          this.storage.set('backbetslips',this.betslip.backbetsliparray);
-
-      }
-
   }
 
 

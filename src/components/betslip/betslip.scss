@@ -169,8 +169,46 @@ betslip {
         width: 95% !important;
         background-color: transparent;
         color: black;
-        font-size: 11px;
+        font-size: 12px;
+        text-align: left;
     }
+
+    .lay-matched-style-lost{
+        height: 60px !important;
+        width: 95% !important;
+        border-style: solid;
+        border-width: 4px;
+        //background-color: rgb(255, 65, 65) !important;
+        border-color: red;
+        border-radius: 35%;
+        color: black;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .back-matched-style-won{
+        height: 60px !important;
+        width: 95% !important;
+        border-style: solid;
+        border-width: 4px;
+        //background-color: rgb(255, 65, 65) !important;
+        border-color:green;
+        border-radius: 35%;
+        color: black;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .matched-style{
+        height: 60px !important;
+        width: 95% !important;
+        background-color:transparent;
+        color: black;
+        font-size: 14px;
+        text-align: left;
+    }
+
+
 
     .stakecontent{
         height: 20px;

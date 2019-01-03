@@ -104,6 +104,9 @@
                 <ion-col col- >
                         <button [disabled] = "betcounter==0" class="betslipbutton" (click)="placeBets()">Place Bet</button>
                 </ion-col>
+                <!--ion-col col- >
+                        <button [disabled] = "betcounter==0" class="betslipbutton" (click)="makeCode()">Make Code</button>
+                </ion-col-->
             </ion-row>
     </ion-grid>
 </div>
@@ -198,10 +201,12 @@
                   <div > <ion-icon class="logo lay-paperclip" name="attach"></ion-icon></div>
                     <div class="notestyle noterotate" >
                       <div class="notetext">
-                            <ion-item *ngFor = "let laybet of laybetslip.LayBetListArray" class="textcontent" > 
+                            <ion-item *ngFor = "let laybet of laybetslip.LayBetListArray" class="textcontent" style="background-color: transparent"> 
                                 <ion-icon item-start [name]="laybet.icon" style="color:black; font-size: 24px" ></ion-icon>
-                                <ion-label> {{laybet.date}}<br/>{{laybet.sport}}: {{laybet.event}}<br/>
-                                    <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                                <ion-label [class]="getStyle(laybet.won)"> {{laybet.date}}<br/>{{laybet.sport}}: {{laybet.event}}<br/>
+                                    <span [class]="laybet.market1==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market1}}</span> v 
+                                    <span [class]="laybet.market2==laybet.winner ? 'winner-color' : 'loser-color'">{{laybet.market2}}</span>
+                                    <span class="winner-color">{{laybet.overunder}}</span>
                                 </ion-label>
                             </ion-item>
                               <ion-grid class="textcontent" style="height: 44px !important;">
@@ -230,8 +235,10 @@
                       <div class="notetext">
                             <ion-item *ngFor = "let backbet of backbetslip.BackBetListArray" class="textcontent" > 
                                 <ion-icon item-start [name]="backbet.icon" style="color:black; font-size: 24px" ></ion-icon>
-                                    <ion-label> {{backbet.date}}<br/>{{backbet.sport}}: {{backbet.event}}<br/>
-                                        <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                                    <ion-label  [class]="getBackStyle(backbet.won)"> {{backbet.date}}<br/>{{backbet.sport}}: {{backbet.event}}<br/>
+                                        <span [class]="backbet.market1==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market1}}</span> v 
+                                        <span [class]="backbet.market2==backbet.winner ? 'winner-color' : 'loser-color'">{{backbet.market2}}</span>
+                                        <span class="winner-color">{{backbet.overunder}}</span>
                                   </ion-label>
                               </ion-item>
                               <ion-grid class="textcontent" style="height: 44px !important;">
@@ -251,5 +258,3 @@
                       </div>
                 </div>
     </ion-content>
-
-    
